@@ -10,7 +10,7 @@ class AuthRepository {
   Future<UserInfo> register(String login, String password) async {
     final response = await http.post(
         Uri.parse(
-            "http://192.168.1.34:8080/volunteeringKEMSU/api/auth/register"),
+            "http://localhost:8080/volunteeringKEMSU/api/auth/register"),
         headers: {'Content-Type': 'application/json'},
         body: {"login": login, "password": password});
 
@@ -24,7 +24,7 @@ class AuthRepository {
 
   Future<UserInfo> login(String login, String password) async {
     final response = await http.post(
-        Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/auth/login"),
+        Uri.parse("http://localhost:8080/volunteeringKEMSU/api/auth/login"),
         headers: {
           'Content-Type': 'application/json'
         },

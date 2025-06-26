@@ -9,7 +9,7 @@ import 'package:volunteering_kemsu/entities/organization/organization.dart';
 class OrganizationRepository {
   Future<Faq> fetchAllFaq() async {
     final response = await http.get(
-        Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/faq"),
+        Uri.parse("http://localhost:8080/volunteeringKEMSU/api/faq"),
         headers: {'Content-Type': 'application/json'});
 
     final json = jsonDecode(response.body);
@@ -22,7 +22,7 @@ class OrganizationRepository {
   Future<OrganizationInfo> fetchOrganizationInfo() async {
     final response = await http.get(
         Uri.parse(
-            "http://192.168.1.34:8080/volunteeringKEMSU/api/organization"),
+            "http://localhost:8080/volunteeringKEMSU/api/organization"),
         headers: {
           'Content-Type': 'application/json',
         });

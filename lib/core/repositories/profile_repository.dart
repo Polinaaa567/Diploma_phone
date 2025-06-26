@@ -9,7 +9,7 @@ class ProfileRepository {
   Future<UserInfo> receiveUserInfo(String token) async {
     final response = await http.get(
         Uri.parse(
-            "http://192.168.1.34:8080/volunteeringKEMSU/api/profile/users"),
+            "http://localhost:8080/volunteeringKEMSU/api/profile/users"),
         headers: {
           'Content-Type': 'application/json',
           'token': token,
@@ -25,7 +25,7 @@ class ProfileRepository {
 
   Future<UserInfo> changeUserInfo(UserInfo user, String token) async {
     final response = await http.put(
-        Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/auth/login"),
+        Uri.parse("http://localhost:8080/volunteeringKEMSU/api/auth/login"),
         headers: {
           'Content-Type': 'application/json',
           'token': token,

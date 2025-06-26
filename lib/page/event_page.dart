@@ -79,18 +79,18 @@ class EventCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
       ),
-      child: Column(
+      child: Row(
         // crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           ClipRRect(
             borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
             child: Image.network(
-              'http://192.168.1.34:8080/volunteeringKEMSU/api/images/storage?fileName=${event.image}',
+              'http://localhost:8080/volunteeringKEMSU/api/images/storage?fileName=${event.image}',
               height: 120,
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
                 return Image.network(
-                  'https://i.pinimg.com/originals/53/9d/e4/539de4199d480813187a869d84b774c6.png',
+                  'https://k.img.mu/bR0DzD.png',
                   height: 120,
                   fit: BoxFit.cover,
                 );
@@ -107,31 +107,41 @@ class EventCard extends StatelessWidget {
               },
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  event.name ?? 'Без названия',
-                  style: Theme.of(context).textTheme.titleMedium,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      event.name ?? 'Без названия',
+                      style: const TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      event.description ?? '',
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(height: 15),
+                    Text(
+                      event.date ?? 'Дата не указана',
+                      style: const TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 8),
-                Text(
-                  event.date ?? 'Дата не указана',
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  event.description ?? '',
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
-            ),
-          )
+              )
+            ],
+          ),
         ],
       ),
     );

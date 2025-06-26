@@ -12,7 +12,7 @@ class LessonsRepository {
     String token,
   ) async {
     final response = await http.get(
-        Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/education?"
+        Uri.parse("http://localhost:8080/volunteeringKEMSU/api/education?"
             "page=$page"),
         headers: {'Content-Type': 'application/json', 'token': token});
     final json = jsonDecode(response.body);
@@ -30,7 +30,7 @@ class LessonsRepository {
   ) async {
     final response = await http.get(
         Uri.parse(
-            "http://192.168.1.34:8080/volunteeringKEMSU/api/education/$lessonID"),
+            "http://localhost:8080/volunteeringKEMSU/api/education/$lessonID"),
         headers: {
           'Content-Type': 'application/json',
           'token': token,

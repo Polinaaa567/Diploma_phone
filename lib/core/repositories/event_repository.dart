@@ -11,7 +11,7 @@ class EventRepository {
     int page,
   ) async {
     final response = await http.get(
-        Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/events?"
+        Uri.parse("http://localhost:8080/volunteeringKEMSU/api/events?"
             "page=$page"),
         headers: {
           'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ class EventRepository {
     String token,
   ) async {
     final response = await http.get(
-        Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/events/past?"
+        Uri.parse("http://localhost:8080/volunteeringKEMSU/api/events/past?"
             "page=$page"),
         headers: {
           'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ class EventRepository {
   ) async {
     final response = await http.get(
         Uri.parse(
-            "http://192.168.1.34:8080/volunteeringKEMSU/api/events/future?"
+            "http://localhost:8080/volunteeringKEMSU/api/events/future?"
             "page=$page"),
         headers: {
           'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ class EventRepository {
     String dateEnd,
   ) async {
     final response = await http.get(
-        Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/events?"
+        Uri.parse("http://localhost:8080/volunteeringKEMSU/api/events?"
             "dateStart=$dateStart&"
             "dateEnd=$dateEnd"),
         headers: {
@@ -89,7 +89,7 @@ class EventRepository {
   ) async {
     final response = await http.get(
         Uri.parse(
-            "http://192.168.1.34:8080/volunteeringKEMSU/api/events/$eventID"),
+            "http://localhost:8080/volunteeringKEMSU/api/events/$eventID"),
         headers: {
           'Content-Type': 'application/json',
           'token': token,
@@ -108,7 +108,7 @@ class EventRepository {
   ) async {
     final response = await http.post(
         Uri.parse(
-            "http://192.168.1.34:8080/volunteeringKEMSU/api/events/sign-up"),
+            "http://localhost:8080/volunteeringKEMSU/api/events/sign-up"),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -130,7 +130,7 @@ class EventRepository {
   ) async {
     final response = await http.post(
         Uri.parse(
-            "http://192.168.1.34:8080/volunteeringKEMSU/api/events/$eventID/users/$userID"),
+            "http://localhost:8080/volunteeringKEMSU/api/events/$eventID/users/$userID"),
         headers: {
           'Content-Type': 'application/json',
         });

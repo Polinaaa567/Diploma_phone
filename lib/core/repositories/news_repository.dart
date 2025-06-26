@@ -11,7 +11,7 @@ class NewsRepository {
     int page,
   ) async {
     final response = await http.get(
-        Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/news?"
+        Uri.parse("http://localhost:8080/volunteeringKEMSU/api/news?"
             "page=$page"),
         headers: {
           'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ class NewsRepository {
   ) async {
     final response = await http.get(
         Uri.parse(
-            "http://192.168.1.34:8080/volunteeringKEMSU/api/news?newsID=$newsID"),
+            "http://localhost:8080/volunteeringKEMSU/api/news?newsID=$newsID"),
         headers: {
           'Content-Type': 'application/json',
         });
