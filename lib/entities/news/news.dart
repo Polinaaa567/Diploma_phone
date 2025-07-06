@@ -4,7 +4,7 @@ part 'news.freezed.dart';
 part 'news.g.dart';
 
 @freezed
-class News with _$News {
+abstract class News with _$News {
   const factory News({
     String? headline,
     int? id,

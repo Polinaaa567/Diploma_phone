@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:volunteering_kemsu/core/providers/event_providers.dart';
-import 'package:volunteering_kemsu/entities/event/event.dart';
+
+import 'package:volunteering_kemsu/core/providers/event_provider.dart';
+import 'package:volunteering_kemsu/widgets/event/event_card.dart';
 
 class EventScreen extends ConsumerWidget {
   const EventScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final eventList = ref.watch(eventListProvider(1));
+    final eventList = ref.watch(eventProvider.select(
+      (state) => state.eventList,
+    ));
+
+    final isLoadingMore = ref.watch(eventProvider.select(
+      (state) => state.isLoadingMore,
+    ));
 
     return Scaffold(
+      backgroundColor: const Color.fromARGB(84, 222, 248, 251),
       body: eventList.when(
         loading: () => const Center(
           child: CircularProgressIndicator(),
@@ -21,128 +29,88 @@ class EventScreen extends ConsumerWidget {
         data: (pagination) {
           final events = pagination.events ?? [];
           final total = pagination.total ?? 0;
+          final hasMore = pagination.hasMore ?? false;
 
-          return SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(30),
-                  child: Text(
-                    "Всего мероприятий: $total",
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                ),
-                if (events.isEmpty)
-                  const Padding(
-                    padding: EdgeInsets.all(32.0),
-                    child: Text("Нет доступных мероприятий"),
-                  )
-                else
-                  GridView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    padding: const EdgeInsets.all(16),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 1,
-                      mainAxisSpacing: 16,
-                      crossAxisSpacing: 16,
-                      childAspectRatio: 1.5,
+          return NotificationListener<ScrollNotification>(
+            onNotification: (scrollInfo) {
+              if (scrollInfo.metrics.pixels >=
+                  scrollInfo.metrics.maxScrollExtent * 0.8) {
+                if (hasMore && !isLoadingMore) {
+                  ref.read(eventProvider.notifier)
+                    ..updatePage()
+                    ..fetchAllEvents();
+                }
+              }
+              return false;
+            },
+            child: RefreshIndicator(
+              onRefresh: () => ref.read(eventProvider.notifier).refresh(),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 32),
+                      child: Container(
+                        height: 50,
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment(0.8, 1),
+                            colors: <Color>[
+                              Colors.blue,
+                              Colors.lightBlueAccent
+                            ],
+                            tileMode: TileMode.mirror,
+                          ),
+                        ),
+                        alignment: Alignment.center,
+                        child: Text(
+                          "Волонтёрские мероприятия: $total",
+                          style: const TextStyle(
+                            fontSize: 21,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                     ),
-                    itemCount: events.length,
-                    itemBuilder: (context, index) {
-                      final event = events[index];
-                      return EventCard(event: event);
-                    },
-                  ),
-              ],
+                    if (events.isEmpty)
+                      const Padding(
+                        padding: EdgeInsets.all(32.0),
+                        child: Text("Нет доступных мероприятий"),
+                      )
+                    else
+                      GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 8,
+                        ),
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 1,
+                          mainAxisSpacing: 20,
+                          crossAxisSpacing: 0,
+                          childAspectRatio: 0.75,
+                        ),
+                        itemCount: events.length,
+                        itemBuilder: (context, index) =>
+                            EventCard(event: events[index]),
+                      ),
+                    if (isLoadingMore)
+                      const Padding(
+                        padding: EdgeInsets.all(16.0),
+                        child: Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
             ),
           );
         },
-      ),
-    );
-  }
-}
-
-class EventCard extends StatelessWidget {
-  final Event event;
-
-  const EventCard({
-    super.key,
-    required this.event,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Row(
-        // crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          ClipRRect(
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
-            child: Image.network(
-              'http://localhost:8080/volunteeringKEMSU/api/images/storage?fileName=${event.image}',
-              height: 120,
-              fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) {
-                return Image.network(
-                  'https://k.img.mu/bR0DzD.png',
-                  height: 120,
-                  fit: BoxFit.cover,
-                );
-              },
-              loadingBuilder: (context, child, loadingProgress) {
-                if (loadingProgress == null) return child;
-                return Container(
-                  height: 120,
-                  color: Colors.grey,
-                  child: const Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                );
-              },
-            ),
-          ),
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      event.name ?? 'Без названия',
-                      style: const TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      event.description ?? '',
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    const SizedBox(height: 15),
-                    Text(
-                      event.date ?? 'Дата не указана',
-                      style: const TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ],
       ),
     );
   }

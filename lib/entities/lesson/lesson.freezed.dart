@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,216 +9,34 @@ part of 'lesson.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Lesson _$LessonFromJson(Map<String, dynamic> json) {
-  return _Lesson.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Lesson {
-  bool? get status => throw _privateConstructorUsedError;
-  String? get message => throw _privateConstructorUsedError;
-  int? get id => throw _privateConstructorUsedError;
-  String? get headline => throw _privateConstructorUsedError;
-  String? get link => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  int? get numberPoints => throw _privateConstructorUsedError;
-
-  /// Serializes this Lesson to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  bool? get status;
+  String? get message;
+  int? get id;
+  String? get headline;
+  String? get link;
+  String? get description;
+  int? get numberPoints;
 
   /// Create a copy of Lesson
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $LessonCopyWith<Lesson> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $LessonCopyWith<$Res> {
-  factory $LessonCopyWith(Lesson value, $Res Function(Lesson) then) =
-      _$LessonCopyWithImpl<$Res, Lesson>;
-  @useResult
-  $Res call(
-      {bool? status,
-      String? message,
-      int? id,
-      String? headline,
-      String? link,
-      String? description,
-      int? numberPoints});
-}
-
-/// @nodoc
-class _$LessonCopyWithImpl<$Res, $Val extends Lesson>
-    implements $LessonCopyWith<$Res> {
-  _$LessonCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Lesson
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
-    Object? id = freezed,
-    Object? headline = freezed,
-    Object? link = freezed,
-    Object? description = freezed,
-    Object? numberPoints = freezed,
-  }) {
-    return _then(_value.copyWith(
-      status: freezed == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      headline: freezed == headline
-          ? _value.headline
-          : headline // ignore: cast_nullable_to_non_nullable
-              as String?,
-      link: freezed == link
-          ? _value.link
-          : link // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      numberPoints: freezed == numberPoints
-          ? _value.numberPoints
-          : numberPoints // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
-  }
-}
+  $LessonCopyWith<Lesson> get copyWith =>
+      _$LessonCopyWithImpl<Lesson>(this as Lesson, _$identity);
 
-/// @nodoc
-abstract class _$$LessonImplCopyWith<$Res> implements $LessonCopyWith<$Res> {
-  factory _$$LessonImplCopyWith(
-          _$LessonImpl value, $Res Function(_$LessonImpl) then) =
-      __$$LessonImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {bool? status,
-      String? message,
-      int? id,
-      String? headline,
-      String? link,
-      String? description,
-      int? numberPoints});
-}
-
-/// @nodoc
-class __$$LessonImplCopyWithImpl<$Res>
-    extends _$LessonCopyWithImpl<$Res, _$LessonImpl>
-    implements _$$LessonImplCopyWith<$Res> {
-  __$$LessonImplCopyWithImpl(
-      _$LessonImpl _value, $Res Function(_$LessonImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of Lesson
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
-    Object? id = freezed,
-    Object? headline = freezed,
-    Object? link = freezed,
-    Object? description = freezed,
-    Object? numberPoints = freezed,
-  }) {
-    return _then(_$LessonImpl(
-      status: freezed == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      headline: freezed == headline
-          ? _value.headline
-          : headline // ignore: cast_nullable_to_non_nullable
-              as String?,
-      link: freezed == link
-          ? _value.link
-          : link // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      numberPoints: freezed == numberPoints
-          ? _value.numberPoints
-          : numberPoints // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$LessonImpl implements _Lesson {
-  const _$LessonImpl(
-      {this.status,
-      this.message,
-      this.id,
-      this.headline,
-      this.link,
-      this.description,
-      this.numberPoints});
-
-  factory _$LessonImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LessonImplFromJson(json);
-
-  @override
-  final bool? status;
-  @override
-  final String? message;
-  @override
-  final int? id;
-  @override
-  final String? headline;
-  @override
-  final String? link;
-  @override
-  final String? description;
-  @override
-  final int? numberPoints;
-
-  @override
-  String toString() {
-    return 'Lesson(status: $status, message: $message, id: $id, headline: $headline, link: $link, description: $description, numberPoints: $numberPoints)';
-  }
+  /// Serializes this Lesson to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LessonImpl &&
+            other is Lesson &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.id, id) || other.id == id) &&
@@ -236,53 +54,384 @@ class _$LessonImpl implements _Lesson {
   int get hashCode => Object.hash(runtimeType, status, message, id, headline,
       link, description, numberPoints);
 
-  /// Create a copy of Lesson
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LessonImplCopyWith<_$LessonImpl> get copyWith =>
-      __$$LessonImplCopyWithImpl<_$LessonImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LessonImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Lesson(status: $status, message: $message, id: $id, headline: $headline, link: $link, description: $description, numberPoints: $numberPoints)';
   }
 }
 
-abstract class _Lesson implements Lesson {
-  const factory _Lesson(
-      {final bool? status,
-      final String? message,
-      final int? id,
-      final String? headline,
-      final String? link,
-      final String? description,
-      final int? numberPoints}) = _$LessonImpl;
+/// @nodoc
+abstract mixin class $LessonCopyWith<$Res> {
+  factory $LessonCopyWith(Lesson value, $Res Function(Lesson) _then) =
+      _$LessonCopyWithImpl;
+  @useResult
+  $Res call(
+      {bool? status,
+      String? message,
+      int? id,
+      String? headline,
+      String? link,
+      String? description,
+      int? numberPoints});
+}
 
-  factory _Lesson.fromJson(Map<String, dynamic> json) = _$LessonImpl.fromJson;
+/// @nodoc
+class _$LessonCopyWithImpl<$Res> implements $LessonCopyWith<$Res> {
+  _$LessonCopyWithImpl(this._self, this._then);
+
+  final Lesson _self;
+  final $Res Function(Lesson) _then;
+
+  /// Create a copy of Lesson
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? status = freezed,
+    Object? message = freezed,
+    Object? id = freezed,
+    Object? headline = freezed,
+    Object? link = freezed,
+    Object? description = freezed,
+    Object? numberPoints = freezed,
+  }) {
+    return _then(_self.copyWith(
+      status: freezed == status
+          ? _self.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      message: freezed == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: freezed == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      headline: freezed == headline
+          ? _self.headline
+          : headline // ignore: cast_nullable_to_non_nullable
+              as String?,
+      link: freezed == link
+          ? _self.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      numberPoints: freezed == numberPoints
+          ? _self.numberPoints
+          : numberPoints // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// Adds pattern-matching-related methods to [Lesson].
+extension LessonPatterns on Lesson {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Lesson value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Lesson() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Lesson value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Lesson():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Lesson value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Lesson() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(bool? status, String? message, int? id, String? headline,
+            String? link, String? description, int? numberPoints)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Lesson() when $default != null:
+        return $default(_that.status, _that.message, _that.id, _that.headline,
+            _that.link, _that.description, _that.numberPoints);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(bool? status, String? message, int? id, String? headline,
+            String? link, String? description, int? numberPoints)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Lesson():
+        return $default(_that.status, _that.message, _that.id, _that.headline,
+            _that.link, _that.description, _that.numberPoints);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(bool? status, String? message, int? id, String? headline,
+            String? link, String? description, int? numberPoints)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Lesson() when $default != null:
+        return $default(_that.status, _that.message, _that.id, _that.headline,
+            _that.link, _that.description, _that.numberPoints);
+      case _:
+        return null;
+    }
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _Lesson implements Lesson {
+  const _Lesson(
+      {this.status,
+      this.message,
+      this.id,
+      this.headline,
+      this.link,
+      this.description,
+      this.numberPoints});
+  factory _Lesson.fromJson(Map<String, dynamic> json) => _$LessonFromJson(json);
 
   @override
-  bool? get status;
+  final bool? status;
   @override
-  String? get message;
+  final String? message;
   @override
-  int? get id;
+  final int? id;
   @override
-  String? get headline;
+  final String? headline;
   @override
-  String? get link;
+  final String? link;
   @override
-  String? get description;
+  final String? description;
   @override
-  int? get numberPoints;
+  final int? numberPoints;
 
   /// Create a copy of Lesson
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LessonImplCopyWith<_$LessonImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$LessonCopyWith<_Lesson> get copyWith =>
+      __$LessonCopyWithImpl<_Lesson>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LessonToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Lesson &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.headline, headline) ||
+                other.headline == headline) &&
+            (identical(other.link, link) || other.link == link) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.numberPoints, numberPoints) ||
+                other.numberPoints == numberPoints));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, status, message, id, headline,
+      link, description, numberPoints);
+
+  @override
+  String toString() {
+    return 'Lesson(status: $status, message: $message, id: $id, headline: $headline, link: $link, description: $description, numberPoints: $numberPoints)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$LessonCopyWith<$Res> implements $LessonCopyWith<$Res> {
+  factory _$LessonCopyWith(_Lesson value, $Res Function(_Lesson) _then) =
+      __$LessonCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {bool? status,
+      String? message,
+      int? id,
+      String? headline,
+      String? link,
+      String? description,
+      int? numberPoints});
+}
+
+/// @nodoc
+class __$LessonCopyWithImpl<$Res> implements _$LessonCopyWith<$Res> {
+  __$LessonCopyWithImpl(this._self, this._then);
+
+  final _Lesson _self;
+  final $Res Function(_Lesson) _then;
+
+  /// Create a copy of Lesson
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? status = freezed,
+    Object? message = freezed,
+    Object? id = freezed,
+    Object? headline = freezed,
+    Object? link = freezed,
+    Object? description = freezed,
+    Object? numberPoints = freezed,
+  }) {
+    return _then(_Lesson(
+      status: freezed == status
+          ? _self.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      message: freezed == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: freezed == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      headline: freezed == headline
+          ? _self.headline
+          : headline // ignore: cast_nullable_to_non_nullable
+              as String?,
+      link: freezed == link
+          ? _self.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      numberPoints: freezed == numberPoints
+          ? _self.numberPoints
+          : numberPoints // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+// dart format on

@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,183 +9,104 @@ part of 'user.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-UserInfo _$UserInfoFromJson(Map<String, dynamic> json) {
-  return _UserInfo.fromJson(json);
-}
 
 /// @nodoc
 mixin _$UserInfo {
-  String? get lastName => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  String? get patronymic => throw _privateConstructorUsedError;
-  String? get clothingSize => throw _privateConstructorUsedError;
-  String? get ageStamp => throw _privateConstructorUsedError;
-  String? get formEducation => throw _privateConstructorUsedError;
-  String? get basisEducation => throw _privateConstructorUsedError;
-  String? get message => throw _privateConstructorUsedError;
-  bool? get status => throw _privateConstructorUsedError;
-  String? get nameRole => throw _privateConstructorUsedError;
-  int? get id => throw _privateConstructorUsedError;
-  String? get token => throw _privateConstructorUsedError;
-  int? get points => throw _privateConstructorUsedError;
-  int? get maxPoint => throw _privateConstructorUsedError;
-  int? get level => throw _privateConstructorUsedError;
-  double? get percent => throw _privateConstructorUsedError;
-  List<String>? get certificates => throw _privateConstructorUsedError;
-
-  /// Serializes this UserInfo to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String? get lastName;
+  String? get name;
+  String? get patronymic;
+  String? get clothingSize;
+  String? get ageStamp;
+  String? get formEducation;
+  String? get basisEducation;
+  String? get message;
+  bool? get status;
+  String? get nameRole;
+  int? get id;
+  String? get token;
+  int? get points;
+  int? get maxPoint;
+  int? get level;
+  double? get percent;
+  List<String>? get certificates;
 
   /// Create a copy of UserInfo
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $UserInfoCopyWith<UserInfo> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $UserInfoCopyWith<$Res> {
-  factory $UserInfoCopyWith(UserInfo value, $Res Function(UserInfo) then) =
-      _$UserInfoCopyWithImpl<$Res, UserInfo>;
-  @useResult
-  $Res call(
-      {String? lastName,
-      String? name,
-      String? patronymic,
-      String? clothingSize,
-      String? ageStamp,
-      String? formEducation,
-      String? basisEducation,
-      String? message,
-      bool? status,
-      String? nameRole,
-      int? id,
-      String? token,
-      int? points,
-      int? maxPoint,
-      int? level,
-      double? percent,
-      List<String>? certificates});
-}
-
-/// @nodoc
-class _$UserInfoCopyWithImpl<$Res, $Val extends UserInfo>
-    implements $UserInfoCopyWith<$Res> {
-  _$UserInfoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of UserInfo
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $UserInfoCopyWith<UserInfo> get copyWith =>
+      _$UserInfoCopyWithImpl<UserInfo>(this as UserInfo, _$identity);
+
+  /// Serializes this UserInfo to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? lastName = freezed,
-    Object? name = freezed,
-    Object? patronymic = freezed,
-    Object? clothingSize = freezed,
-    Object? ageStamp = freezed,
-    Object? formEducation = freezed,
-    Object? basisEducation = freezed,
-    Object? message = freezed,
-    Object? status = freezed,
-    Object? nameRole = freezed,
-    Object? id = freezed,
-    Object? token = freezed,
-    Object? points = freezed,
-    Object? maxPoint = freezed,
-    Object? level = freezed,
-    Object? percent = freezed,
-    Object? certificates = freezed,
-  }) {
-    return _then(_value.copyWith(
-      lastName: freezed == lastName
-          ? _value.lastName
-          : lastName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      patronymic: freezed == patronymic
-          ? _value.patronymic
-          : patronymic // ignore: cast_nullable_to_non_nullable
-              as String?,
-      clothingSize: freezed == clothingSize
-          ? _value.clothingSize
-          : clothingSize // ignore: cast_nullable_to_non_nullable
-              as String?,
-      ageStamp: freezed == ageStamp
-          ? _value.ageStamp
-          : ageStamp // ignore: cast_nullable_to_non_nullable
-              as String?,
-      formEducation: freezed == formEducation
-          ? _value.formEducation
-          : formEducation // ignore: cast_nullable_to_non_nullable
-              as String?,
-      basisEducation: freezed == basisEducation
-          ? _value.basisEducation
-          : basisEducation // ignore: cast_nullable_to_non_nullable
-              as String?,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-      status: freezed == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      nameRole: freezed == nameRole
-          ? _value.nameRole
-          : nameRole // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      token: freezed == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as String?,
-      points: freezed == points
-          ? _value.points
-          : points // ignore: cast_nullable_to_non_nullable
-              as int?,
-      maxPoint: freezed == maxPoint
-          ? _value.maxPoint
-          : maxPoint // ignore: cast_nullable_to_non_nullable
-              as int?,
-      level: freezed == level
-          ? _value.level
-          : level // ignore: cast_nullable_to_non_nullable
-              as int?,
-      percent: freezed == percent
-          ? _value.percent
-          : percent // ignore: cast_nullable_to_non_nullable
-              as double?,
-      certificates: freezed == certificates
-          ? _value.certificates
-          : certificates // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UserInfo &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.patronymic, patronymic) ||
+                other.patronymic == patronymic) &&
+            (identical(other.clothingSize, clothingSize) ||
+                other.clothingSize == clothingSize) &&
+            (identical(other.ageStamp, ageStamp) ||
+                other.ageStamp == ageStamp) &&
+            (identical(other.formEducation, formEducation) ||
+                other.formEducation == formEducation) &&
+            (identical(other.basisEducation, basisEducation) ||
+                other.basisEducation == basisEducation) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.nameRole, nameRole) ||
+                other.nameRole == nameRole) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.token, token) || other.token == token) &&
+            (identical(other.points, points) || other.points == points) &&
+            (identical(other.maxPoint, maxPoint) ||
+                other.maxPoint == maxPoint) &&
+            (identical(other.level, level) || other.level == level) &&
+            (identical(other.percent, percent) || other.percent == percent) &&
+            const DeepCollectionEquality()
+                .equals(other.certificates, certificates));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      lastName,
+      name,
+      patronymic,
+      clothingSize,
+      ageStamp,
+      formEducation,
+      basisEducation,
+      message,
+      status,
+      nameRole,
+      id,
+      token,
+      points,
+      maxPoint,
+      level,
+      percent,
+      const DeepCollectionEquality().hash(certificates));
+
+  @override
+  String toString() {
+    return 'UserInfo(lastName: $lastName, name: $name, patronymic: $patronymic, clothingSize: $clothingSize, ageStamp: $ageStamp, formEducation: $formEducation, basisEducation: $basisEducation, message: $message, status: $status, nameRole: $nameRole, id: $id, token: $token, points: $points, maxPoint: $maxPoint, level: $level, percent: $percent, certificates: $certificates)';
   }
 }
 
 /// @nodoc
-abstract class _$$UserInfoImplCopyWith<$Res>
-    implements $UserInfoCopyWith<$Res> {
-  factory _$$UserInfoImplCopyWith(
-          _$UserInfoImpl value, $Res Function(_$UserInfoImpl) then) =
-      __$$UserInfoImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $UserInfoCopyWith<$Res> {
+  factory $UserInfoCopyWith(UserInfo value, $Res Function(UserInfo) _then) =
+      _$UserInfoCopyWithImpl;
   @useResult
   $Res call(
       {String? lastName,
@@ -208,12 +129,11 @@ abstract class _$$UserInfoImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$UserInfoImplCopyWithImpl<$Res>
-    extends _$UserInfoCopyWithImpl<$Res, _$UserInfoImpl>
-    implements _$$UserInfoImplCopyWith<$Res> {
-  __$$UserInfoImplCopyWithImpl(
-      _$UserInfoImpl _value, $Res Function(_$UserInfoImpl) _then)
-      : super(_value, _then);
+class _$UserInfoCopyWithImpl<$Res> implements $UserInfoCopyWith<$Res> {
+  _$UserInfoCopyWithImpl(this._self, this._then);
+
+  final UserInfo _self;
+  final $Res Function(UserInfo) _then;
 
   /// Create a copy of UserInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -238,83 +158,345 @@ class __$$UserInfoImplCopyWithImpl<$Res>
     Object? percent = freezed,
     Object? certificates = freezed,
   }) {
-    return _then(_$UserInfoImpl(
+    return _then(_self.copyWith(
       lastName: freezed == lastName
-          ? _value.lastName
+          ? _self.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String?,
       name: freezed == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
       patronymic: freezed == patronymic
-          ? _value.patronymic
+          ? _self.patronymic
           : patronymic // ignore: cast_nullable_to_non_nullable
               as String?,
       clothingSize: freezed == clothingSize
-          ? _value.clothingSize
+          ? _self.clothingSize
           : clothingSize // ignore: cast_nullable_to_non_nullable
               as String?,
       ageStamp: freezed == ageStamp
-          ? _value.ageStamp
+          ? _self.ageStamp
           : ageStamp // ignore: cast_nullable_to_non_nullable
               as String?,
       formEducation: freezed == formEducation
-          ? _value.formEducation
+          ? _self.formEducation
           : formEducation // ignore: cast_nullable_to_non_nullable
               as String?,
       basisEducation: freezed == basisEducation
-          ? _value.basisEducation
+          ? _self.basisEducation
           : basisEducation // ignore: cast_nullable_to_non_nullable
               as String?,
       message: freezed == message
-          ? _value.message
+          ? _self.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
       status: freezed == status
-          ? _value.status
+          ? _self.status
           : status // ignore: cast_nullable_to_non_nullable
               as bool?,
       nameRole: freezed == nameRole
-          ? _value.nameRole
+          ? _self.nameRole
           : nameRole // ignore: cast_nullable_to_non_nullable
               as String?,
       id: freezed == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
       token: freezed == token
-          ? _value.token
+          ? _self.token
           : token // ignore: cast_nullable_to_non_nullable
               as String?,
       points: freezed == points
-          ? _value.points
+          ? _self.points
           : points // ignore: cast_nullable_to_non_nullable
               as int?,
       maxPoint: freezed == maxPoint
-          ? _value.maxPoint
+          ? _self.maxPoint
           : maxPoint // ignore: cast_nullable_to_non_nullable
               as int?,
       level: freezed == level
-          ? _value.level
+          ? _self.level
           : level // ignore: cast_nullable_to_non_nullable
               as int?,
       percent: freezed == percent
-          ? _value.percent
+          ? _self.percent
           : percent // ignore: cast_nullable_to_non_nullable
               as double?,
       certificates: freezed == certificates
-          ? _value._certificates
+          ? _self.certificates
           : certificates // ignore: cast_nullable_to_non_nullable
               as List<String>?,
     ));
   }
 }
 
+/// Adds pattern-matching-related methods to [UserInfo].
+extension UserInfoPatterns on UserInfo {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_UserInfo value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _UserInfo() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_UserInfo value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _UserInfo():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_UserInfo value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _UserInfo() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String? lastName,
+            String? name,
+            String? patronymic,
+            String? clothingSize,
+            String? ageStamp,
+            String? formEducation,
+            String? basisEducation,
+            String? message,
+            bool? status,
+            String? nameRole,
+            int? id,
+            String? token,
+            int? points,
+            int? maxPoint,
+            int? level,
+            double? percent,
+            List<String>? certificates)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _UserInfo() when $default != null:
+        return $default(
+            _that.lastName,
+            _that.name,
+            _that.patronymic,
+            _that.clothingSize,
+            _that.ageStamp,
+            _that.formEducation,
+            _that.basisEducation,
+            _that.message,
+            _that.status,
+            _that.nameRole,
+            _that.id,
+            _that.token,
+            _that.points,
+            _that.maxPoint,
+            _that.level,
+            _that.percent,
+            _that.certificates);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String? lastName,
+            String? name,
+            String? patronymic,
+            String? clothingSize,
+            String? ageStamp,
+            String? formEducation,
+            String? basisEducation,
+            String? message,
+            bool? status,
+            String? nameRole,
+            int? id,
+            String? token,
+            int? points,
+            int? maxPoint,
+            int? level,
+            double? percent,
+            List<String>? certificates)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _UserInfo():
+        return $default(
+            _that.lastName,
+            _that.name,
+            _that.patronymic,
+            _that.clothingSize,
+            _that.ageStamp,
+            _that.formEducation,
+            _that.basisEducation,
+            _that.message,
+            _that.status,
+            _that.nameRole,
+            _that.id,
+            _that.token,
+            _that.points,
+            _that.maxPoint,
+            _that.level,
+            _that.percent,
+            _that.certificates);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String? lastName,
+            String? name,
+            String? patronymic,
+            String? clothingSize,
+            String? ageStamp,
+            String? formEducation,
+            String? basisEducation,
+            String? message,
+            bool? status,
+            String? nameRole,
+            int? id,
+            String? token,
+            int? points,
+            int? maxPoint,
+            int? level,
+            double? percent,
+            List<String>? certificates)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _UserInfo() when $default != null:
+        return $default(
+            _that.lastName,
+            _that.name,
+            _that.patronymic,
+            _that.clothingSize,
+            _that.ageStamp,
+            _that.formEducation,
+            _that.basisEducation,
+            _that.message,
+            _that.status,
+            _that.nameRole,
+            _that.id,
+            _that.token,
+            _that.points,
+            _that.maxPoint,
+            _that.level,
+            _that.percent,
+            _that.certificates);
+      case _:
+        return null;
+    }
+  }
+}
+
 /// @nodoc
 @JsonSerializable()
-class _$UserInfoImpl implements _UserInfo {
-  const _$UserInfoImpl(
+class _UserInfo implements UserInfo {
+  const _UserInfo(
       {this.lastName,
       this.name,
       this.patronymic,
@@ -333,9 +515,8 @@ class _$UserInfoImpl implements _UserInfo {
       this.percent,
       final List<String>? certificates})
       : _certificates = certificates;
-
-  factory _$UserInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UserInfoImplFromJson(json);
+  factory _UserInfo.fromJson(Map<String, dynamic> json) =>
+      _$UserInfoFromJson(json);
 
   @override
   final String? lastName;
@@ -379,16 +560,26 @@ class _$UserInfoImpl implements _UserInfo {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Create a copy of UserInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'UserInfo(lastName: $lastName, name: $name, patronymic: $patronymic, clothingSize: $clothingSize, ageStamp: $ageStamp, formEducation: $formEducation, basisEducation: $basisEducation, message: $message, status: $status, nameRole: $nameRole, id: $id, token: $token, points: $points, maxPoint: $maxPoint, level: $level, percent: $percent, certificates: $certificates)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$UserInfoCopyWith<_UserInfo> get copyWith =>
+      __$UserInfoCopyWithImpl<_UserInfo>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$UserInfoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserInfoImpl &&
+            other is _UserInfo &&
             (identical(other.lastName, lastName) ||
                 other.lastName == lastName) &&
             (identical(other.name, name) || other.name == name) &&
@@ -439,84 +630,140 @@ class _$UserInfoImpl implements _UserInfo {
       percent,
       const DeepCollectionEquality().hash(_certificates));
 
-  /// Create a copy of UserInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UserInfoImplCopyWith<_$UserInfoImpl> get copyWith =>
-      __$$UserInfoImplCopyWithImpl<_$UserInfoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$UserInfoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'UserInfo(lastName: $lastName, name: $name, patronymic: $patronymic, clothingSize: $clothingSize, ageStamp: $ageStamp, formEducation: $formEducation, basisEducation: $basisEducation, message: $message, status: $status, nameRole: $nameRole, id: $id, token: $token, points: $points, maxPoint: $maxPoint, level: $level, percent: $percent, certificates: $certificates)';
   }
 }
 
-abstract class _UserInfo implements UserInfo {
-  const factory _UserInfo(
-      {final String? lastName,
-      final String? name,
-      final String? patronymic,
-      final String? clothingSize,
-      final String? ageStamp,
-      final String? formEducation,
-      final String? basisEducation,
-      final String? message,
-      final bool? status,
-      final String? nameRole,
-      final int? id,
-      final String? token,
-      final int? points,
-      final int? maxPoint,
-      final int? level,
-      final double? percent,
-      final List<String>? certificates}) = _$UserInfoImpl;
+/// @nodoc
+abstract mixin class _$UserInfoCopyWith<$Res>
+    implements $UserInfoCopyWith<$Res> {
+  factory _$UserInfoCopyWith(_UserInfo value, $Res Function(_UserInfo) _then) =
+      __$UserInfoCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String? lastName,
+      String? name,
+      String? patronymic,
+      String? clothingSize,
+      String? ageStamp,
+      String? formEducation,
+      String? basisEducation,
+      String? message,
+      bool? status,
+      String? nameRole,
+      int? id,
+      String? token,
+      int? points,
+      int? maxPoint,
+      int? level,
+      double? percent,
+      List<String>? certificates});
+}
 
-  factory _UserInfo.fromJson(Map<String, dynamic> json) =
-      _$UserInfoImpl.fromJson;
+/// @nodoc
+class __$UserInfoCopyWithImpl<$Res> implements _$UserInfoCopyWith<$Res> {
+  __$UserInfoCopyWithImpl(this._self, this._then);
 
-  @override
-  String? get lastName;
-  @override
-  String? get name;
-  @override
-  String? get patronymic;
-  @override
-  String? get clothingSize;
-  @override
-  String? get ageStamp;
-  @override
-  String? get formEducation;
-  @override
-  String? get basisEducation;
-  @override
-  String? get message;
-  @override
-  bool? get status;
-  @override
-  String? get nameRole;
-  @override
-  int? get id;
-  @override
-  String? get token;
-  @override
-  int? get points;
-  @override
-  int? get maxPoint;
-  @override
-  int? get level;
-  @override
-  double? get percent;
-  @override
-  List<String>? get certificates;
+  final _UserInfo _self;
+  final $Res Function(_UserInfo) _then;
 
   /// Create a copy of UserInfo
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UserInfoImplCopyWith<_$UserInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? lastName = freezed,
+    Object? name = freezed,
+    Object? patronymic = freezed,
+    Object? clothingSize = freezed,
+    Object? ageStamp = freezed,
+    Object? formEducation = freezed,
+    Object? basisEducation = freezed,
+    Object? message = freezed,
+    Object? status = freezed,
+    Object? nameRole = freezed,
+    Object? id = freezed,
+    Object? token = freezed,
+    Object? points = freezed,
+    Object? maxPoint = freezed,
+    Object? level = freezed,
+    Object? percent = freezed,
+    Object? certificates = freezed,
+  }) {
+    return _then(_UserInfo(
+      lastName: freezed == lastName
+          ? _self.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: freezed == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      patronymic: freezed == patronymic
+          ? _self.patronymic
+          : patronymic // ignore: cast_nullable_to_non_nullable
+              as String?,
+      clothingSize: freezed == clothingSize
+          ? _self.clothingSize
+          : clothingSize // ignore: cast_nullable_to_non_nullable
+              as String?,
+      ageStamp: freezed == ageStamp
+          ? _self.ageStamp
+          : ageStamp // ignore: cast_nullable_to_non_nullable
+              as String?,
+      formEducation: freezed == formEducation
+          ? _self.formEducation
+          : formEducation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      basisEducation: freezed == basisEducation
+          ? _self.basisEducation
+          : basisEducation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      message: freezed == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+      status: freezed == status
+          ? _self.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      nameRole: freezed == nameRole
+          ? _self.nameRole
+          : nameRole // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: freezed == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      token: freezed == token
+          ? _self.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String?,
+      points: freezed == points
+          ? _self.points
+          : points // ignore: cast_nullable_to_non_nullable
+              as int?,
+      maxPoint: freezed == maxPoint
+          ? _self.maxPoint
+          : maxPoint // ignore: cast_nullable_to_non_nullable
+              as int?,
+      level: freezed == level
+          ? _self.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as int?,
+      percent: freezed == percent
+          ? _self.percent
+          : percent // ignore: cast_nullable_to_non_nullable
+              as double?,
+      certificates: freezed == certificates
+          ? _self._certificates
+          : certificates // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+    ));
+  }
 }
+
+// dart format on

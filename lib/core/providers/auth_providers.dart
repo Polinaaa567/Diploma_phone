@@ -1,24 +1,21 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:volunteering_kemsu/core/repositories/auth_repository.dart';
+import 'package:volunteering_kemsu/core/notifiers/auth_notifier.dart';
+import 'package:volunteering_kemsu/core/state/auth_state.dart';
 import 'package:volunteering_kemsu/entities/profile/user.dart';
 
-final authRepositoryProvider = Provider<AuthRepository>((ref) {
-  return AuthRepository();
+final authProvider = StateNotifierProvider<AuthNotifier, AuthState>((ref) {
+  return AuthNotifier();
 });
 
-final loginProvider = FutureProvider.autoDispose
-    .family<UserInfo, (String, String)>((ref, params) async {
-  final (login, password) = params;
-
-  final repository = ref.watch(authRepositoryProvider);
-  return repository.login(login, password);
+final currentUserProvider = Provider<UserInfo?>((ref) {
+  return ref.watch(authProvider).user;
 });
 
-final registerProvider = FutureProvider.autoDispose
-    .family<UserInfo, (String, String)>((ref, params) async {
-  final (login, password) = params;
+final isAuthProvider = Provider<bool>((ref) {
+  return ref.watch(authProvider).isLoading;
+});
 
-  final repository = ref.watch(authRepositoryProvider);
-  return repository.register(login, password);
+final loginProvider = Provider<String?> ((ref) {
+  return ref.watch(authProvider).login;
 });

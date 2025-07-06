@@ -4,7 +4,7 @@ part 'organization.freezed.dart';
 part 'organization.g.dart';
 
 @freezed
-class OrganizationInfo with _$OrganizationInfo {
+abstract class OrganizationInfo with _$OrganizationInfo {
   const factory OrganizationInfo({
     String? name,
     String? description,

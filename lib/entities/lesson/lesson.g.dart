@@ -6,7 +6,7 @@ part of 'lesson.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LessonImpl _$$LessonImplFromJson(Map<String, dynamic> json) => _$LessonImpl(
+_Lesson _$LessonFromJson(Map<String, dynamic> json) => _Lesson(
       status: json['status'] as bool?,
       message: json['message'] as String?,
       id: (json['id'] as num?)?.toInt(),
@@ -16,8 +16,7 @@ _$LessonImpl _$$LessonImplFromJson(Map<String, dynamic> json) => _$LessonImpl(
       numberPoints: (json['numberPoints'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$$LessonImplToJson(_$LessonImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$LessonToJson(_Lesson instance) => <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
       'id': instance.id,

@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,81 +9,58 @@ part of 'faq.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Faq _$FaqFromJson(Map<String, dynamic> json) {
-  return _Faq.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Faq {
-  List<FaqDto>? get faq => throw _privateConstructorUsedError;
-  String? get contacts => throw _privateConstructorUsedError;
-
-  /// Serializes this Faq to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<FaqDto>? get faq;
+  String? get contacts;
 
   /// Create a copy of Faq
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $FaqCopyWith<Faq> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $FaqCopyWith<$Res> {
-  factory $FaqCopyWith(Faq value, $Res Function(Faq) then) =
-      _$FaqCopyWithImpl<$Res, Faq>;
-  @useResult
-  $Res call({List<FaqDto>? faq, String? contacts});
-}
-
-/// @nodoc
-class _$FaqCopyWithImpl<$Res, $Val extends Faq> implements $FaqCopyWith<$Res> {
-  _$FaqCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of Faq
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $FaqCopyWith<Faq> get copyWith =>
+      _$FaqCopyWithImpl<Faq>(this as Faq, _$identity);
+
+  /// Serializes this Faq to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? faq = freezed,
-    Object? contacts = freezed,
-  }) {
-    return _then(_value.copyWith(
-      faq: freezed == faq
-          ? _value.faq
-          : faq // ignore: cast_nullable_to_non_nullable
-              as List<FaqDto>?,
-      contacts: freezed == contacts
-          ? _value.contacts
-          : contacts // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Faq &&
+            const DeepCollectionEquality().equals(other.faq, faq) &&
+            (identical(other.contacts, contacts) ||
+                other.contacts == contacts));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(faq), contacts);
+
+  @override
+  String toString() {
+    return 'Faq(faq: $faq, contacts: $contacts)';
   }
 }
 
 /// @nodoc
-abstract class _$$FaqImplCopyWith<$Res> implements $FaqCopyWith<$Res> {
-  factory _$$FaqImplCopyWith(_$FaqImpl value, $Res Function(_$FaqImpl) then) =
-      __$$FaqImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $FaqCopyWith<$Res> {
+  factory $FaqCopyWith(Faq value, $Res Function(Faq) _then) = _$FaqCopyWithImpl;
   @useResult
   $Res call({List<FaqDto>? faq, String? contacts});
 }
 
 /// @nodoc
-class __$$FaqImplCopyWithImpl<$Res> extends _$FaqCopyWithImpl<$Res, _$FaqImpl>
-    implements _$$FaqImplCopyWith<$Res> {
-  __$$FaqImplCopyWithImpl(_$FaqImpl _value, $Res Function(_$FaqImpl) _then)
-      : super(_value, _then);
+class _$FaqCopyWithImpl<$Res> implements $FaqCopyWith<$Res> {
+  _$FaqCopyWithImpl(this._self, this._then);
+
+  final Faq _self;
+  final $Res Function(Faq) _then;
 
   /// Create a copy of Faq
   /// with the given fields replaced by the non-null parameter values.
@@ -93,26 +70,181 @@ class __$$FaqImplCopyWithImpl<$Res> extends _$FaqCopyWithImpl<$Res, _$FaqImpl>
     Object? faq = freezed,
     Object? contacts = freezed,
   }) {
-    return _then(_$FaqImpl(
+    return _then(_self.copyWith(
       faq: freezed == faq
-          ? _value._faq
+          ? _self.faq
           : faq // ignore: cast_nullable_to_non_nullable
               as List<FaqDto>?,
       contacts: freezed == contacts
-          ? _value.contacts
+          ? _self.contacts
           : contacts // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
 }
 
+/// Adds pattern-matching-related methods to [Faq].
+extension FaqPatterns on Faq {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Faq value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Faq() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Faq value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Faq():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Faq value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Faq() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(List<FaqDto>? faq, String? contacts)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Faq() when $default != null:
+        return $default(_that.faq, _that.contacts);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(List<FaqDto>? faq, String? contacts) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Faq():
+        return $default(_that.faq, _that.contacts);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(List<FaqDto>? faq, String? contacts)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Faq() when $default != null:
+        return $default(_that.faq, _that.contacts);
+      case _:
+        return null;
+    }
+  }
+}
+
 /// @nodoc
 @JsonSerializable()
-class _$FaqImpl implements _Faq {
-  const _$FaqImpl({final List<FaqDto>? faq, this.contacts}) : _faq = faq;
-
-  factory _$FaqImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FaqImplFromJson(json);
+class _Faq implements Faq {
+  const _Faq({final List<FaqDto>? faq, this.contacts}) : _faq = faq;
+  factory _Faq.fromJson(Map<String, dynamic> json) => _$FaqFromJson(json);
 
   final List<FaqDto>? _faq;
   @override
@@ -127,16 +259,26 @@ class _$FaqImpl implements _Faq {
   @override
   final String? contacts;
 
+  /// Create a copy of Faq
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Faq(faq: $faq, contacts: $contacts)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$FaqCopyWith<_Faq> get copyWith =>
+      __$FaqCopyWithImpl<_Faq>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$FaqToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FaqImpl &&
+            other is _Faq &&
             const DeepCollectionEquality().equals(other._faq, _faq) &&
             (identical(other.contacts, contacts) ||
                 other.contacts == contacts));
@@ -147,37 +289,47 @@ class _$FaqImpl implements _Faq {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_faq), contacts);
 
-  /// Create a copy of Faq
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$FaqImplCopyWith<_$FaqImpl> get copyWith =>
-      __$$FaqImplCopyWithImpl<_$FaqImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$FaqImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Faq(faq: $faq, contacts: $contacts)';
   }
 }
 
-abstract class _Faq implements Faq {
-  const factory _Faq({final List<FaqDto>? faq, final String? contacts}) =
-      _$FaqImpl;
-
-  factory _Faq.fromJson(Map<String, dynamic> json) = _$FaqImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$FaqCopyWith<$Res> implements $FaqCopyWith<$Res> {
+  factory _$FaqCopyWith(_Faq value, $Res Function(_Faq) _then) =
+      __$FaqCopyWithImpl;
   @override
-  List<FaqDto>? get faq;
-  @override
-  String? get contacts;
+  @useResult
+  $Res call({List<FaqDto>? faq, String? contacts});
+}
+
+/// @nodoc
+class __$FaqCopyWithImpl<$Res> implements _$FaqCopyWith<$Res> {
+  __$FaqCopyWithImpl(this._self, this._then);
+
+  final _Faq _self;
+  final $Res Function(_Faq) _then;
 
   /// Create a copy of Faq
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FaqImplCopyWith<_$FaqImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? faq = freezed,
+    Object? contacts = freezed,
+  }) {
+    return _then(_Faq(
+      faq: freezed == faq
+          ? _self._faq
+          : faq // ignore: cast_nullable_to_non_nullable
+              as List<FaqDto>?,
+      contacts: freezed == contacts
+          ? _self.contacts
+          : contacts // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

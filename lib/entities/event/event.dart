@@ -4,9 +4,9 @@ part 'event.g.dart';
 part 'event.freezed.dart';
 
 @freezed
-class Event with _$Event {
-  const factory Event(
-      {String? name,
+abstract class Event with _$Event {
+  const factory Event({
+      String? name,
       String? description,
       String? date,
       String? image,

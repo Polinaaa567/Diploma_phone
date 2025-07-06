@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:volunteering_kemsu/core/repositories/profile_repository.dart';
+import 'package:volunteering_kemsu/core/notifiers/profile_repository.dart';
 import 'package:volunteering_kemsu/entities/profile/user.dart';
 
 final profileRepositoryProvider = Provider<ProfileRepository>((ref) {

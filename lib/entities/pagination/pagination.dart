@@ -8,7 +8,7 @@ part 'pagination.freezed.dart';
 part 'pagination.g.dart';
 
 @freezed
-class Pagination with _$Pagination {
+abstract class Pagination with _$Pagination {
   const factory Pagination({
     List<Event>? events,
     int? total,

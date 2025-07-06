@@ -4,7 +4,7 @@ part 'faq_dto.freezed.dart';
 part 'faq_dto.g.dart';
 
 @freezed
-class FaqDto with _$FaqDto {
+abstract class FaqDto with _$FaqDto {
   const factory FaqDto({
     int? id,
     String? question,

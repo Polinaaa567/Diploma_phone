@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:volunteering_kemsu/core/repositories/organization_repository.dart';
+import 'package:volunteering_kemsu/core/notifiers/organization_repository.dart';
 import 'package:volunteering_kemsu/entities/FAQ/faq.dart';
 import 'package:volunteering_kemsu/entities/organization/organization.dart';
 

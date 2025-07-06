@@ -6,9 +6,8 @@ part of 'organization.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OrganizationInfoImpl _$$OrganizationInfoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$OrganizationInfoImpl(
+_OrganizationInfo _$OrganizationInfoFromJson(Map<String, dynamic> json) =>
+    _OrganizationInfo(
       name: json['name'] as String?,
       description: json['description'] as String?,
       address: json['address'] as String?,
@@ -16,8 +15,7 @@ _$OrganizationInfoImpl _$$OrganizationInfoImplFromJson(
       image: json['image'] as String?,
     );
 
-Map<String, dynamic> _$$OrganizationInfoImplToJson(
-        _$OrganizationInfoImpl instance) =>
+Map<String, dynamic> _$OrganizationInfoToJson(_OrganizationInfo instance) =>
     <String, dynamic>{
       'name': instance.name,
       'description': instance.description,
