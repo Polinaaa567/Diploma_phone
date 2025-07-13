@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:volunteering_kemsu/core/providers/event_provider.dart';
 import 'package:volunteering_kemsu/widgets/event/event_card.dart';
+import 'package:volunteering_kemsu/widgets/event/search.dart';
 
 class EventScreen extends ConsumerWidget {
   const EventScreen({super.key});
@@ -18,7 +19,7 @@ class EventScreen extends ConsumerWidget {
     ));
 
     return Scaffold(
-      backgroundColor: const Color.fromARGB(84, 222, 248, 251),
+      backgroundColor: Color.fromARGB(84, 222, 248, 251),
       body: eventList.when(
         loading: () => const Center(
           child: CircularProgressIndicator(),
@@ -74,30 +75,40 @@ class EventScreen extends ConsumerWidget {
                         ),
                       ),
                     ),
-                    if (events.isEmpty)
-                      const Padding(
-                        padding: EdgeInsets.all(32.0),
-                        child: Text("Нет доступных мероприятий"),
-                      )
-                    else
-                      GridView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 8,
-                        ),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 1,
-                          mainAxisSpacing: 20,
-                          crossAxisSpacing: 0,
-                          childAspectRatio: 0.75,
-                        ),
-                        itemCount: events.length,
-                        itemBuilder: (context, index) =>
-                            EventCard(event: events[index]),
-                      ),
+                    SizedBox(height: 10),
+                    EventSearch(),
+                    events.isEmpty
+                        ? Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(top: 100.0, bottom: 15),
+                                child: Text("Нет доступных мероприятий"),
+                              ),
+                              ElevatedButton(
+                                onPressed: () => ref.read(eventProvider.notifier).refresh(),
+                                child: const Text('Обновить'),
+                              ),
+                            ],
+                          )
+                        : GridView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 8,
+                            ),
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 1,
+                              mainAxisSpacing: 20,
+                              crossAxisSpacing: 0,
+                              childAspectRatio: 0.75,
+                            ),
+                            itemCount: events.length,
+                            itemBuilder: (context, index) => EventCard(
+                              event: events[index],
+                            ),
+                          ),
                     if (isLoadingMore)
                       const Padding(
                         padding: EdgeInsets.all(16.0),

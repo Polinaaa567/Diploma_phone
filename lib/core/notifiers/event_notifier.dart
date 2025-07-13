@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
-import 'package:volunteering_kemsu/core/providers/auth_providers.dart';
 
+import 'package:volunteering_kemsu/core/providers/auth_providers.dart';
 import 'package:volunteering_kemsu/core/state/event_state.dart';
 import 'package:volunteering_kemsu/entities/event/event.dart';
 import 'package:volunteering_kemsu/entities/pagination/pagination.dart';
@@ -49,10 +49,9 @@ class EventNotifier extends StateNotifier<EventState> {
         ];
 
         final mergedPagination = Pagination(
-          events: mergedEvents,
-          total: newPagination.total,
-          hasMore: newPagination.hasMore
-        );
+            events: mergedEvents,
+            total: newPagination.total,
+            hasMore: newPagination.hasMore);
 
         state = state.copyWith(
           eventList: AsyncValue.data(mergedPagination),
@@ -128,13 +127,14 @@ class EventNotifier extends StateNotifier<EventState> {
 
     try {
       final response = await http.get(
-          Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/events?"
-              "dateStart=${state.dateStart}&"
-              "dateEnd=${state.dateEnd}&"
-              "page=${state.page}"),
-          headers: {
-            'Content-Type': 'application/json',
-          });
+        Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/events?"
+            "dateStart=${state.dateStart}&"
+            "dateEnd=${state.dateEnd}&"
+            "page=${state.page}"),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      );
 
       final json = jsonDecode(response.body);
       Logger().d(json);
@@ -142,9 +142,12 @@ class EventNotifier extends StateNotifier<EventState> {
       final eventsBetweenDatePagination = Pagination.fromJson(json);
 
       state = state.copyWith(
-          eventList: AsyncValue.data(eventsBetweenDatePagination));
+        eventList: AsyncValue.data(eventsBetweenDatePagination),
+      );
     } catch (e) {
-      state = state.copyWith(error: "Ошибка: $e");
+      state = state.copyWith(
+        error: "Ошибка: $e",
+      );
     }
   }
 
@@ -173,6 +176,7 @@ class EventNotifier extends StateNotifier<EventState> {
         },
       );
     }
+
     final json = jsonDecode(response.body);
     Logger().d(json);
 
@@ -216,7 +220,14 @@ class EventNotifier extends StateNotifier<EventState> {
   }
 
   Future<void> refresh() async {
-    state = state.copyWith(page: 1, eventList: AsyncValue.loading());
+    state = state.copyWith(
+      page: 1,
+      eventList: AsyncValue.loading(),
+      eventInfo: AsyncValue.loading(),
+      eventID: null,
+      dateStart: '',
+      dateEnd: '',
+    );
     await fetchAllEvents();
   }
 
@@ -227,5 +238,13 @@ class EventNotifier extends StateNotifier<EventState> {
 
   void updatePage() {
     state = state.copyWith(page: state.page + 1);
+  }
+
+  void updateDateStart(String? start) {
+    state = state.copyWith(dateStart: start);
+  }
+
+  void updateDateEnd(String? end) {
+    state = state.copyWith(dateEnd: end);
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:volunteering_kemsu/core/providers/auth_providers.dart';
 
+import 'package:volunteering_kemsu/core/providers/auth_providers.dart';
 import 'package:volunteering_kemsu/core/providers/event_provider.dart';
 import 'package:volunteering_kemsu/entities/event/event.dart';
 
@@ -23,7 +23,7 @@ class EventCard extends ConsumerWidget {
     return GestureDetector(
       onTap: () => {
         context.push(
-          '/events/details/${event.id}',
+          '/events/${event.id}',
         ),
         ref.read(eventProvider.notifier)
           ..updateID(event.id)
@@ -113,9 +113,10 @@ class EventCard extends ConsumerWidget {
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(132, 0, 0, 0)),
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(132, 0, 0, 0),
+                      ),
                     ),
                     const SizedBox(height: 15),
                     if (isAuth && (event.isRelevance ?? true))

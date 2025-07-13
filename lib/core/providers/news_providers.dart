@@ -1,21 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:volunteering_kemsu/core/notifiers/news_repository.dart';
-import 'package:volunteering_kemsu/entities/news/news.dart';
-import 'package:volunteering_kemsu/entities/pagination/pagination.dart';
+import 'package:volunteering_kemsu/core/notifiers/news_notifier.dart';
+import 'package:volunteering_kemsu/core/state/news_state.dart';
 
-final newsRepositoryProvider = Provider<NewsRepository>((ref) {
-  return NewsRepository();
-});
-
-final newsListProvider =
-    FutureProvider.autoDispose.family<Pagination, int>((ref, page) async {
-  final repository = ref.watch(newsRepositoryProvider);
-  return repository.fetchAllNews(page);
-});
-
-final newsInfoProvider =
-    FutureProvider.autoDispose.family<News, int>((ref, newsID) async {
-  final repository = ref.watch(newsRepositoryProvider);
-  return repository.fetchNewsInfo(newsID);
+final newsProvider = StateNotifierProvider<NewsNotifier, NewsState>((ref) {
+  return NewsNotifier(ref);
 });
