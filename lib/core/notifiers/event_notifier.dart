@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
 
@@ -18,8 +19,6 @@ class EventNotifier extends StateNotifier<EventState> {
 
   Future<void> fetchAllEvents() async {
     final currentPagination = state.eventList.value;
-    final Set<Object?> existingIds =
-        currentPagination?.events?.map((e) => e.id).toSet() ?? {};
 
     state = state.copyWith(isLoadingMore: true);
 
@@ -27,9 +26,7 @@ class EventNotifier extends StateNotifier<EventState> {
       final response = await http.get(
         Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/events?"
             "page=${state.page}"),
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: {'Content-Type': 'application/json'},
       );
 
       if (response.statusCode == 200) {
@@ -38,23 +35,20 @@ class EventNotifier extends StateNotifier<EventState> {
 
         final newPagination = Pagination.fromJson(json);
 
-        final newEvents = newPagination.events?.where((event) {
-              return !existingIds.contains(event.id);
-            }).toList() ??
-            [];
+        final mergedPagination = currentPagination?.copyWith(
+          events: [
+            ...(currentPagination.events ?? []),
+            ...(newPagination.events ?? []),
+          ],
+          total: newPagination.total,
+          hasMore: newPagination.hasMore,
+        ) ?? newPagination;
 
-        final List<Event> mergedEvents = [
-          ...(currentPagination?.events ?? []),
-          ...newEvents
-        ];
-
-        final mergedPagination = Pagination(
-            events: mergedEvents,
-            total: newPagination.total,
-            hasMore: newPagination.hasMore);
+        Logger().d(mergedPagination);
 
         state = state.copyWith(
           eventList: AsyncValue.data(mergedPagination),
+          page: state.page + 1,
           isLoadingMore: false,
         );
       } else {
@@ -228,6 +222,7 @@ class EventNotifier extends StateNotifier<EventState> {
       dateStart: '',
       dateEnd: '',
     );
+
     await fetchAllEvents();
   }
 
@@ -236,9 +231,6 @@ class EventNotifier extends StateNotifier<EventState> {
     state = state.copyWith(eventID: value);
   }
 
-  void updatePage() {
-    state = state.copyWith(page: state.page + 1);
-  }
 
   void updateDateStart(String? start) {
     state = state.copyWith(dateStart: start);

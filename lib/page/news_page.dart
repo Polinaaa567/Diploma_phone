@@ -76,7 +76,7 @@ class NewsScreen extends ConsumerWidget {
                     if (news.isEmpty)
                       const Padding(
                         padding: EdgeInsets.all(32.0),
-                        child: Text("Нет доступных мероприятий"),
+                        child: Text("Нет новостей"),
                       )
                     else
                       GridView.builder(

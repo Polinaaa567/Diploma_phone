@@ -14,33 +14,38 @@ class EventSearch extends ConsumerWidget {
       (state) => state.dateEnd,
     ));
 
-    return Row(
-      children: [
-        Expanded(
-          child: DatePicker(
-            value: dateStart!,
-            label: 'Начало',
-            onChanged: (date) =>
-                ref.read(eventProvider.notifier).updateDateStart(date),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      child: Row(
+        children: [
+          Expanded(
+            child: DatePicker(
+              value: dateStart!,
+              label: 'Начало',
+              onChanged: (date) =>
+                  ref.read(eventProvider.notifier).updateDateStart(date),
+            ),
           ),
-        ),
-        SizedBox(width: 10),
-        Expanded(
-          child: DatePicker(
-            value: dateEnd!,
-            label: 'Конец',
-            onChanged: (date) =>
-                ref.read(eventProvider.notifier).updateDateEnd(date),
+          SizedBox(width: 10),
+          Expanded(
+            child: DatePicker(
+              value: dateEnd!,
+              label: 'Конец',
+              onChanged: (date) =>
+                  ref.read(eventProvider.notifier).updateDateEnd(date),
+            ),
           ),
-        ),
-        SizedBox(width: 10),
-        if (dateStart != '' && dateEnd != '')
-          IconButton(
-            onPressed: () =>
-                ref.read(eventProvider.notifier).fetchEventsBetweenDate(),
-            icon: Icon(Icons.search),
-          )
-      ],
+          if (dateStart != '' && dateEnd != '')
+            Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: IconButton(
+                onPressed: () =>
+                    ref.read(eventProvider.notifier).fetchEventsBetweenDate(),
+                icon: Icon(Icons.search),
+              ),
+            ),
+        ],
+      ),
     );
   }
 }

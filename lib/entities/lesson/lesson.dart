@@ -13,7 +13,6 @@ abstract class Lesson with _$Lesson {
     String? link,
     String? description,
     int? numberPoints,
-
   }) = _Lesson;
   factory Lesson.fromJson(Map<String, dynamic> json) => _$LessonFromJson(json);
 

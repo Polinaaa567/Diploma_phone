@@ -37,9 +37,7 @@ class EventScreen extends ConsumerWidget {
               if (scrollInfo.metrics.pixels >=
                   scrollInfo.metrics.maxScrollExtent * 0.8) {
                 if (hasMore && !isLoadingMore) {
-                  ref.read(eventProvider.notifier)
-                    ..updatePage()
-                    ..fetchAllEvents();
+                  ref.read(eventProvider.notifier).fetchAllEvents();
                 }
               }
               return false;
@@ -90,20 +88,14 @@ class EventScreen extends ConsumerWidget {
                               ),
                             ],
                           )
-                        : GridView.builder(
+                        : ListView.separated(
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
                             padding: const EdgeInsets.symmetric(
                               horizontal: 10,
                               vertical: 8,
                             ),
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 1,
-                              mainAxisSpacing: 20,
-                              crossAxisSpacing: 0,
-                              childAspectRatio: 0.75,
-                            ),
+                            separatorBuilder: (context, index) => SizedBox(height: 17,),
                             itemCount: events.length,
                             itemBuilder: (context, index) => EventCard(
                               event: events[index],

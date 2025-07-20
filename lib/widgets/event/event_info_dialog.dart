@@ -5,6 +5,7 @@ import 'package:percent_indicator/flutter_percent_indicator.dart';
 
 import 'package:volunteering_kemsu/core/providers/auth_providers.dart';
 import 'package:volunteering_kemsu/core/providers/event_provider.dart';
+import 'package:volunteering_kemsu/widgets/indicator.dart';
 
 class EventInfoDialog extends ConsumerWidget {
   const EventInfoDialog({super.key});
@@ -67,16 +68,16 @@ class EventInfoDialog extends ConsumerWidget {
                           ),
                         ],
                       ),
-                     Text(
-                          '${event.name}',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          maxLines: 3,
+                      Text(
+                        '${event.name}',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
                         ),
+                        maxLines: 3,
+                      ),
                       // ),
                       const SizedBox(height: 8),
                       Container(
@@ -193,38 +194,20 @@ class EventInfoDialog extends ConsumerWidget {
                                   ),
                                   const SizedBox(height: 8),
                                   event.maxCountParticipants != 0
-                                      ? LinearPercentIndicator(
-                                          lineHeight: 20,
-                                          percent:
+                                      ? CustomPercentIndicator(
+                                          formula:
                                               (event.countParticipants ?? 1.0)
                                                       .toDouble() /
                                                   (event.maxCountParticipants ??
                                                           1.0)
                                                       .toDouble(),
-                                          backgroundColor: Colors.grey,
-                                          progressColor: Colors.lightBlueAccent,
-                                          center: Text(
-                                            '${(event.countParticipants?.toDouble() ?? 1.0) / (event.maxCountParticipants?.toDouble() ?? 1.0) * 100}%',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          barRadius: Radius.circular(15),
+                                          textPercent:
+                                              '${(event.countParticipants?.toDouble() ?? 1.0) / (event.maxCountParticipants?.toDouble() ?? 1.0) * 100}%',
                                         )
-                                      : LinearPercentIndicator(
-                                          lineHeight: 23,
-                                          percent: 1.0,
-                                          backgroundColor: Colors.grey,
-                                          progressColor: Colors.blueAccent,
-                                          center: Text(
-                                            '${(event.countParticipants?.toDouble() ?? 1.0) * 100}%',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          barRadius: Radius.circular(15),
+                                      : CustomPercentIndicator(
+                                          formula: 1.0,
+                                          textPercent:
+                                              '${(event.countParticipants?.toDouble() ?? 1.0) * 100}%',
                                         ),
                                 ],
                               ),
