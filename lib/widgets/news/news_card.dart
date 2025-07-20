@@ -22,7 +22,8 @@ class NewsCard extends ConsumerWidget {
         ),
         ref.read(newsProvider.notifier)
           ..updateID(news.id)
-          ..fetchNewsInfo(),
+          ..fetchNewsInfo()
+          ..toggleExpanded(),
       },
       child: Card(
         elevation: 10,

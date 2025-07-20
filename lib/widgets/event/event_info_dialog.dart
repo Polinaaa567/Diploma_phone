@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:percent_indicator/flutter_percent_indicator.dart';
 
 import 'package:volunteering_kemsu/core/providers/auth_providers.dart';
 import 'package:volunteering_kemsu/core/providers/event_provider.dart';
@@ -32,8 +31,10 @@ class EventInfoDialog extends ConsumerWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          insetPadding:
-              const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          insetPadding: const EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: 20,
+          ),
           child: SingleChildScrollView(
             child: Column(
               children: [

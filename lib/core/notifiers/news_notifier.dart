@@ -107,4 +107,8 @@ class NewsNotifier extends StateNotifier<NewsState> {
   void updatePage() {
     state = state.copyWith(page: state.page + 1);
   }
+
+  void toggleExpanded() {
+    state = state.copyWith(isExpanded: !state.isExpanded);
+  }
 }

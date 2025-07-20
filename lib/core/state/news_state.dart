@@ -10,6 +10,7 @@ class NewsState {
   final int page;
   final String? error;
   final bool isLoadingMore;
+  final bool isExpanded;
 
   NewsState({
     this.page = 1,
@@ -18,6 +19,7 @@ class NewsState {
     this.newsInfo = const AsyncValue.loading(),
     this.newsList = const AsyncValue.loading(),
     this.isLoadingMore = false,
+    this.isExpanded = false,
   });
 
   NewsState copyWith({
@@ -27,6 +29,7 @@ class NewsState {
     int? page,
     String? error,
     bool? isLoadingMore,
+    bool? isExpanded,
   }) {
     return NewsState(
       newsList: newsList ?? this.newsList,
@@ -35,6 +38,7 @@ class NewsState {
       error: error ?? this.error,
       newsID: newsID ?? this.newsID,
       isLoadingMore: isLoadingMore ?? this.isLoadingMore,
+      isExpanded: isExpanded ?? this.isExpanded,
     );
   }
 }

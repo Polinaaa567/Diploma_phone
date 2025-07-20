@@ -73,31 +73,26 @@ class NewsScreen extends ConsumerWidget {
                         ),
                       ),
                     ),
-                    if (news.isEmpty)
-                      const Padding(
-                        padding: EdgeInsets.all(32.0),
-                        child: Text("Нет новостей"),
-                      )
-                    else
-                      GridView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 8,
-                        ),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 1,
-                          mainAxisSpacing: 20,
-                          crossAxisSpacing: 0,
-                          childAspectRatio: 2.3,
-                        ),
-                        itemCount: news.length,
-                        itemBuilder: (context, index) => NewsCard(
-                          news: news[index],
-                        ),
-                      ),
+                    news.isEmpty
+                        ? const Padding(
+                            padding: EdgeInsets.all(32.0),
+                            child: Text("Нет новостей"),
+                          )
+                        : ListView.separated(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 8,
+                            ),
+                            separatorBuilder: (context, index) => SizedBox(
+                              height: 17,
+                            ),
+                            itemCount: news.length,
+                            itemBuilder: (context, index) => NewsCard(
+                              news: news[index],
+                            ),
+                          ),
                     if (isLoadingMore)
                       const Padding(
                         padding: EdgeInsets.all(16.0),
