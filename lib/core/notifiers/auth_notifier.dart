@@ -35,7 +35,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
 
     try {
       final response = await http.post(
-        Uri.parse("http://localhost:8080/volunteeringKEMSU/api/auth/register"),
+        Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/auth/register"),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -75,7 +75,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
 
     try {
       final response = await http.post(
-        Uri.parse("http://localhost:8080/volunteeringKEMSU/api/auth/login"),
+        Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/auth/login"),
         headers: {
           'Content-Type': 'application/json',
         },

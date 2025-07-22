@@ -8,12 +8,15 @@ class AuthState {
   final String? login;
   final String? password;
 
+  final UserInfo? userProfile;
+
   AuthState({
     this.user,
     this.error,
     this.isLoading = false,
     this.password = '',
     this.login = '',
+    this.userProfile,
   });
 
   bool get isAuthenticated => user != null;
@@ -24,6 +27,7 @@ class AuthState {
     String? error,
     String? login,
     String? password,
+    UserInfo? userProfile,
   }) {
     return AuthState(
       user: user ?? this.user,
@@ -31,6 +35,7 @@ class AuthState {
       error: error ?? this.error,
       login: login ?? this.login,
       password: password ?? this.password,
+      userProfile: userProfile ?? this.userProfile,
     );
   }
 }

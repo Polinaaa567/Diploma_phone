@@ -39,8 +39,8 @@ class NewsCard extends ConsumerWidget {
                 borderRadius: BorderRadius.circular(15),
                 child: Image.network(
                   'http://192.168.1.34:8080/volunteeringKEMSU/api/images/storage?fileName=${news.image}',
-                  height: 120,
-                  width: 120,
+                  height: 140,
+                  width: 140,
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) {
                     return Image.network(
@@ -53,8 +53,8 @@ class NewsCard extends ConsumerWidget {
                   loadingBuilder: (context, child, loadingProgress) {
                     if (loadingProgress == null) return child;
                     return Container(
-                      height: 220,
-                      width: 220,
+                      height: 140,
+                      width: 140,
                       color: Colors.grey,
                       child: const Center(
                         child: CircularProgressIndicator(),

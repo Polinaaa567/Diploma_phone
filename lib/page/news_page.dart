@@ -50,7 +50,6 @@ class NewsScreen extends ConsumerWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 32),
                       child: Container(
-                        height: 50,
                         decoration: BoxDecoration(
                           gradient: const LinearGradient(
                             begin: Alignment.topLeft,
@@ -63,12 +62,15 @@ class NewsScreen extends ConsumerWidget {
                           ),
                         ),
                         alignment: Alignment.center,
-                        child: Text(
-                          "Новости: $total",
-                          style: const TextStyle(
-                            fontSize: 21,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(vertical: 10),
+                          child: Text(
+                            "Новости: $total",
+                            style: const TextStyle(
+                              fontSize: 21,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),

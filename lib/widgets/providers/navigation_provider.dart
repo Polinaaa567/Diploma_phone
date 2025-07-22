@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dialog_page/dialog_page.dart';
 import 'package:go_router/go_router.dart';
+import 'package:volunteering_kemsu/core/providers/auth_providers.dart';
 import 'package:volunteering_kemsu/page/lessons_page.dart';
+import 'package:volunteering_kemsu/page/settings_page.dart';
 
 import 'package:volunteering_kemsu/widgets/event/event_info_dialog.dart';
 import 'package:volunteering_kemsu/widgets/navigation/menu.dart';
@@ -14,6 +16,10 @@ final navIndexProvider = StateProvider<int>((ref) => 0);
 
 final routerProvider = Provider<GoRouter>((ref) {
   final navIndexNotifier = ref.read(navIndexProvider.notifier);
+
+  final isAuth = ref.watch(authProvider.select(
+    (state) => state.isAuthenticated,
+  ));
 
   return GoRouter(
     initialLocation: '/',
@@ -76,20 +82,21 @@ final routerProvider = Provider<GoRouter>((ref) {
               ),
             ),
           ),
-          GoRoute(
-            path: '/rating',
-            pageBuilder: (context, state) => CustomTransitionPage(
-              child: const NewsScreen(),
-              transitionsBuilder: (_, animation, __, child) => FadeTransition(
-                opacity: animation,
-                child: child,
+          if (isAuth)
+            GoRoute(
+              path: '/rating',
+              pageBuilder: (context, state) => CustomTransitionPage(
+                child: const NewsScreen(),
+                transitionsBuilder: (_, animation, __, child) => FadeTransition(
+                  opacity: animation,
+                  child: child,
+                ),
               ),
             ),
-          ),
           GoRoute(
             path: '/settings',
             pageBuilder: (context, state) => CustomTransitionPage(
-              child: const EventScreen(),
+              child: const SettingsScreen(),
               transitionsBuilder: (_, animation, __, child) => FadeTransition(
                 opacity: animation,
                 child: child,
@@ -101,16 +108,17 @@ final routerProvider = Provider<GoRouter>((ref) {
     ],
     redirect: (context, state) {
       final location = state.path;
-      if (location == '/' || location == '/events')
+      if (location == '/' || location == '/events') {
         navIndexNotifier.state = 0;
-      else if (location == '/news')
+      } else if (location == '/news') {
         navIndexNotifier.state = 1;
-      else if (location == '/lessons')
+      } else if (location == '/lessons') {
         navIndexNotifier.state = 2;
-      else if (location == '/rating')
+      } else if (location == '/rating') {
         navIndexNotifier.state = 3;
-      else if (location == '/settings') navIndexNotifier.state = 4;
-
+      } else if (location == '/settings') {
+        navIndexNotifier.state = 4;
+      }
       return null;
     },
   );
