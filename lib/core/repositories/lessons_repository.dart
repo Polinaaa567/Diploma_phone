@@ -19,14 +19,19 @@ class LessonsRepository extends ILessonsRepository {
     Logger().d('отправка token в уроках $token');
 
     if(token != null &&  token != 'BAD'){
-      response = await http.get(
-        Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/education?"
-            "page=$page"),
-        headers: {
-          'Content-Type': 'application/json',
-          'token': token
-        },
-      );
+      if(filter != null) {
+        response = await http.get(
+          Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/education?"
+              "page=$page&filter=$filter"),
+          headers: {'Content-Type': 'application/json', 'token': token},
+        );
+      } else {
+        response = await http.get(
+          Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/education?"
+              "page=$page"),
+          headers: {'Content-Type': 'application/json', 'token': token},
+        );
+      }
     } else {
       response = await http.get(
         Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/education?"
@@ -75,7 +80,7 @@ class LessonsRepository extends ILessonsRepository {
 
   @override
   Future<void> sendPoints(int? lessonID, String? token) async {
-    final response = await http.get(
+    final response = await http.post(
       Uri.parse(
           "http://192.168.1.34:8080/volunteeringKEMSU/api/education/$lessonID"),
       headers: {
@@ -85,6 +90,9 @@ class LessonsRepository extends ILessonsRepository {
     );
 
     final json = jsonDecode(response.body);
+
+    debugPrint(response.body, wrapWidth: 1024);
+
     Logger().d(json);
   }
 }

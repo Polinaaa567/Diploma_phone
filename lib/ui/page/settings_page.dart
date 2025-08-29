@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:volunteering_kemsu/core/providers/animation_provider.dart';
+import 'package:volunteering_kemsu/core/providers/navigation_provider.dart';
 import 'package:volunteering_kemsu/core/providers/user_info_provider.dart';
 import 'package:volunteering_kemsu/core/providers/organization_provider.dart';
 import 'package:volunteering_kemsu/core/view_models/user_info/user_info_notifier.dart';
@@ -618,7 +619,6 @@ class SettingsScreen extends ConsumerWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                 child: ElevatedButton(
-                  onPressed: () async {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
                     foregroundColor: Colors.redAccent,
@@ -645,6 +645,10 @@ class SettingsScreen extends ConsumerWidget {
                       return Colors.redAccent;
                     }),
                   ),
+                  onPressed: () async {
+                    await ref.read(userInfoProvider.notifier).logout();
+                    ref.read(navIndexProvider.notifier).state = 0;
+                  },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

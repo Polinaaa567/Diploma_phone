@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logger/logger.dart';
+import 'package:volunteering_kemsu/core/providers/navigation_provider.dart';
 
 import 'package:volunteering_kemsu/core/providers/user_info_provider.dart';
 
@@ -13,7 +14,8 @@ class AuthScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final login = ref.watch(userInfoProvider.select((state) => state.login));
 
-    final passwd = ref.watch(userInfoProvider.select((state) => state.password));
+    final passwd =
+        ref.watch(userInfoProvider.select((state) => state.password));
 
     final passwdRepair = ref.watch(userInfoProvider.select(
       (state) => state.passwordRepair,
@@ -117,7 +119,8 @@ class AuthScreen extends ConsumerWidget {
               _input(
                 label: 'Повторите пароль',
                 controller: passwordRepairController,
-                onChanged: ref.read(userInfoProvider.notifier).setPasswordRepair,
+                onChanged:
+                    ref.read(userInfoProvider.notifier).setPasswordRepair,
                 obscureText: ref.watch(userInfoProvider.select(
                   (state) => state.passwordRepairVisible,
                 )),
@@ -157,16 +160,19 @@ class AuthScreen extends ConsumerWidget {
                         final success =
                             await ref.read(userInfoProvider.notifier).login();
                         if (success) {
+
+                          ref.read(navIndexProvider.notifier).state = 0;
+
                           await ref
                               .read(userInfoProvider.notifier)
                               .receiveUserInfo();
 
                           if (context.mounted) {
-                            context.pop('/settings');
+                            context.pop();
                           }
                         } else {
-                          final message = ref.read(
-                              userInfoProvider.select((state) => state.message));
+                          final message = ref.read(userInfoProvider
+                              .select((state) => state.message));
                           if (context.mounted) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(content: Text('Ошибка: $message')),
@@ -185,21 +191,25 @@ class AuthScreen extends ConsumerWidget {
                             (state) => state.token,
                           )) !=
                           'BAD') {
-                        ref.read(userInfoProvider.notifier).receiveUserInfo();
-                        context.pop('/settings');
-                      } else {
 
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('Ошибка: ${ref.watch(
-                              userInfoProvider.select(
-                                (state) => state.message,
-                              ),
-                            )}'),
-                          ),
-                        );
+                        ref.read(navIndexProvider.notifier).state = 0;
+
+                        await ref.read(userInfoProvider.notifier).receiveUserInfo();
+                        if (context.mounted) {
+                          context.pop();
+                        }
+                      } else {
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Ошибка: ${ref.watch(
+                                userInfoProvider
+                                    .select((state) => state.message),
+                              )}'),
+                            ),
+                          );
+                        }
                       }
-                      ;
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Text('Введите все данные'),
@@ -212,20 +222,27 @@ class AuthScreen extends ConsumerWidget {
                         errorMessageLogin == null &&
                         errorMessagePasswd == null &&
                         errorMessagePasswdRepair == null) {
-                      ref.read(userInfoProvider.notifier).register();
+                      await ref.read(userInfoProvider.notifier).register();
                       if (ref.watch(userInfoProvider.select(
                             (state) => state.token,
                           )) !=
                           'BAD') {
-                        ref.read(userInfoProvider.notifier).receiveUserInfo();
-                        context.push('/settings');
+                        await ref
+                            .read(userInfoProvider.notifier)
+                            .receiveUserInfo();
+                        ref.read(navIndexProvider.notifier).state = 0;
+                        if (context.mounted) {
+                          context.pop();
+                        }
                       } else {
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content:
-                              Text('Ошибка: ${ref.watch(userInfoProvider.select(
-                            (state) => state.message,
-                          ))}'),
-                        ));
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text(
+                                'Ошибка: ${ref.watch(userInfoProvider.select(
+                              (state) => state.message,
+                            ))}'),
+                          ));
+                        }
                       }
                     } else {
                       Logger().d(login);
@@ -296,7 +313,6 @@ class AuthScreen extends ConsumerWidget {
     TextEditingController? controller,
     String? errorText,
     IconData? icon,
-    Function()? onPressed,
     Widget? iconVisibleWidget,
     int? maxLength,
   }) {

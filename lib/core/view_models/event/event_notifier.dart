@@ -67,6 +67,7 @@ class EventNotifier extends StateNotifier<EventState> {
 
   Future<void> fetchFutureEventsUser() async {
     state = state.copyWith(error: null);
+
     final authState = ref.read(userInfoProvider);
 
     try {
@@ -137,6 +138,12 @@ class EventNotifier extends StateNotifier<EventState> {
     );
 
     await fetchAllEvents();
+  }
+
+  void refreshPage() {
+    state = state.copyWith(
+      page: 1,
+    );
   }
 
   void updateID(int? value) {

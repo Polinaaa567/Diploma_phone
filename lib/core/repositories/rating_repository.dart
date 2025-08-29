@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:logger/logger.dart';
 import 'package:volunteering_kemsu/core/models/profile/user.dart';
 import 'package:http/http.dart' as http;
 
@@ -35,6 +36,7 @@ class RatingRepository extends IRatingRepository {
 
     final json = jsonDecode(response.body);
 
+    Logger().d(json);
     return UserInfo.fromJson(json);
   }
 }

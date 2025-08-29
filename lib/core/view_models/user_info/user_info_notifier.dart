@@ -13,7 +13,8 @@ class UserInfoNotifier extends StateNotifier<UserInfoState> {
   final IAuthRepository _repositoryA;
   final IRatingRepository _repositoryR;
 
-  UserInfoNotifier(this._repositoryA, this._repositoryR) : super(UserInfoState()) {
+  UserInfoNotifier(this._repositoryA, this._repositoryR)
+      : super(UserInfoState()) {
     _loadUser();
   }
 
@@ -124,7 +125,7 @@ class UserInfoNotifier extends StateNotifier<UserInfoState> {
     await prefs.remove('user');
     await prefs.remove('login');
 
-    state = state.copyWith();
+    state = UserInfoState();
   }
 
   void setLogin(String value) {
@@ -282,13 +283,28 @@ class UserInfoNotifier extends StateNotifier<UserInfoState> {
     // final UserInfo? user = state.userProfile;
 
     final rating = await _repositoryR.getAllUsersInRating();
-    state = state.copyWith(usersRating: rating);
+    state = state.copyWith(usersRating: AsyncValue.data(rating));
+
+    if(rating.isNotEmpty && state.userProfile != null) {
+      for (int i = 0; i < rating.length; i++) {
+        Logger().d('i ${state.user?.id}');
+        if(rating[i].id == state.user?.id) {
+          state = state.copyWith(placeInRating: i);
+        }
+      }
+    } else {
+      state = state.copyWith(placeInRating: 0);
+    }
+
+    Logger().d('place in rating ${state.placeInRating}');
   }
 
   Future<void> getUserAchievements() async {
     final UserInfo? user = state.userProfile;
-    final UserInfo achievements =
-        await _repositoryR.getUserAchievements(state.token);
+    final UserInfo achievements = await _repositoryR.getUserAchievements(
+      state.token,
+    );
+
     if (user != null) {
       final updatedUser = user.copyWith(
         certificates: achievements.certificates,

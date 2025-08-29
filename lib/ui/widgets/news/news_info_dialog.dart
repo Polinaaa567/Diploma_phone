@@ -105,7 +105,7 @@ class NewsInfoDialog extends ConsumerWidget {
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) {
                       return Image.network(
-                        'https://shkola24syktyvkar.gosuslugi.ru/netcat_files/203/3463/6660.jpg',
+                        'https://sun9-13.userapi.com/impf/wp_ckCPuXV7M7xbC_g3lVtpc2BgQhYx-9ZmeMQ/yor2PcNjubE.jpg?size=1920x768&quality=95&crop=0,0,1920,767&sign=53350d02d37dada715aca1519472dffd&type=cover_group',
                         height: 220,
                         fit: BoxFit.cover,
                       );

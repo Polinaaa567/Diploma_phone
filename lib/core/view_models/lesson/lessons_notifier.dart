@@ -1,17 +1,10 @@
-import 'dart:convert';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
-import 'package:volunteering_kemsu/core/models/lesson/lesson.dart';
-import 'package:volunteering_kemsu/core/models/pagination/pagination.dart';
-import 'package:volunteering_kemsu/core/models/profile/user.dart';
 
 import 'package:volunteering_kemsu/core/providers/user_info_provider.dart';
 import 'package:volunteering_kemsu/core/repositories/lessons_repository.dart';
 import 'package:volunteering_kemsu/core/view_models/lesson/lessons_state.dart';
-import 'package:volunteering_kemsu/core/view_models/user_info/user_info_state.dart';
 
 class LessonsNotifier extends StateNotifier<LessonState> {
   final ILessonsRepository repository;
@@ -33,9 +26,9 @@ class LessonsNotifier extends StateNotifier<LessonState> {
 
     String? filter;
 
-    if (state.isFiltered == true) {
+    if (state.isPassedLessons == true && state.isNotPassedLessons == false && state.isAllLessons == false) {
       filter = "watched";
-    } else if (state.isFiltered == false) {
+    } else if (state.isPassedLessons == false && state.isNotPassedLessons == true && state.isAllLessons == false) {
       filter = 'unwatched';
     } else {
       filter = null;
@@ -80,41 +73,20 @@ class LessonsNotifier extends StateNotifier<LessonState> {
     );
   }
 
-  // Future<void>fetchTotalInt() async{
-  //
-  //   final http.Response response = await http.get(
-  //     Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/education?"
-  //         "page=${state.page}"),
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //   );
-  //
-  //   if (response.statusCode == 200) {
-  //     final json = jsonDecode(response.body);
-  //     Logger().d(json);
-  //
-  //     final newPagination = Pagination.fromJson(json);
-  //
-  //     state = state.copyWith(
-  //       total: newPagination.total,
-  //     );
-  //   } else {
-  //     state = state.copyWith(
-  //       error: 'Произошла ошибка',
-  //     );
-  //   }
-  // }
-
   Future<void> sendPoints() async {
     final token = ref.read(userInfoProvider.select(
       (state) => state.user!.token,
     ));
 
+    Logger().d(' lesson id ${state.lessonID}');
     await repository.sendPoints(state.lessonID, token);
 
-    // final message = Lesson.fromJson(json);
-    // return message;
+    // final Lessons? user = state.userProfile;
+    // if (user != null) {
+    //   final updatedUser = user.copyWith(patronymic: value);
+    //   state = state.copyWith(userProfile: updatedUser);
+    // }
+
   }
 
   Future<void> refresh() async {

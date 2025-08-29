@@ -136,9 +136,9 @@ class EventsRepository extends IEventsRepository {
       Uri.parse(
           "http://192.168.1.34:8080/volunteeringKEMSU/api/events/sign-up"),
       headers: {'Content-Type': 'application/json', 'token': token ?? ''},
-      body: {
+      body: jsonEncode({
         'eventID': eventID,
-      },
+      }),
     );
 
     final json = jsonDecode(response.body);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:volunteering_kemsu/core/models/profile/user.dart';
 
 class UserInfoState {
@@ -30,7 +31,8 @@ class UserInfoState {
 
   final bool isEdit;
 
-  final List<UserInfo>? usersRating;
+  final AsyncValue<List<UserInfo>> usersRating;
+  final int? placeInRating;
 
   UserInfoState({
     this.isEdit = false,
@@ -58,7 +60,8 @@ class UserInfoState {
     TextEditingController? firstNameController,
     TextEditingController? lastNameController,
     TextEditingController? patronymicController,
-    this.usersRating,
+    this.usersRating = const AsyncValue.loading(),
+    this.placeInRating = 0,
   })  : loginController = loginController ?? TextEditingController(),
         passwordController = passwordController ?? TextEditingController(),
         repeatPasswordController =
@@ -95,8 +98,8 @@ class UserInfoState {
     String? formEducation,
     String? basisEducation,
     bool? isEdit,
-    List<UserInfo>? usersRating,
-    List<UserInfo>? achievements,
+    AsyncValue<List<UserInfo>>? usersRating,
+    int? placeInRating,
   }) {
     return UserInfoState(
       user: user ?? this.user,
@@ -127,6 +130,7 @@ class UserInfoState {
       basisEducation: basisEducation ?? this.basisEducation,
       isEdit: isEdit ?? this.isEdit,
       usersRating: usersRating ?? this.usersRating,
+      placeInRating: placeInRating ?? this.placeInRating,
     );
   }
 }

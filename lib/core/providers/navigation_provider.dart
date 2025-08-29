@@ -9,6 +9,7 @@ import 'package:volunteering_kemsu/ui/page/event_page.dart';
 import 'package:volunteering_kemsu/ui/page/lessons_page.dart';
 import 'package:volunteering_kemsu/ui/page/news_page.dart';
 import 'package:volunteering_kemsu/ui/page/organization_page.dart';
+import 'package:volunteering_kemsu/ui/page/rating_page.dart';
 import 'package:volunteering_kemsu/ui/page/settings_page.dart';
 import 'package:volunteering_kemsu/ui/widgets/event/event_info_dialog.dart';
 import 'package:volunteering_kemsu/ui/widgets/navigation/menu.dart';
@@ -88,7 +89,7 @@ final routerProvider = Provider<GoRouter>((ref) {
             GoRoute(
               path: '/rating',
               pageBuilder: (context, state) => CustomTransitionPage(
-                child: const NewsScreen(),
+                child: const RatingScreen(),
                 transitionsBuilder: (_, animation, __, child) => FadeTransition(
                   opacity: animation,
                   child: child,

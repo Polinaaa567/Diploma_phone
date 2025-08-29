@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:volunteering_kemsu/core/providers/event_provider.dart';
+import 'package:volunteering_kemsu/core/providers/user_info_provider.dart';
 import 'package:volunteering_kemsu/ui/widgets/event/event_card.dart';
 import 'package:volunteering_kemsu/ui/widgets/event/search.dart';
 
@@ -16,6 +18,10 @@ class EventScreen extends ConsumerWidget {
 
     final isLoadingMore = ref.watch(eventProvider.select(
       (state) => state.isLoadingMore,
+    ));
+
+    final isAuth = ref.watch(userInfoProvider.select(
+      (state) => state.isAuthenticated,
     ));
 
     return Scaffold(
@@ -50,7 +56,7 @@ class EventScreen extends ConsumerWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 32),
                       child: Container(
-                        height: 50,
+                        padding: EdgeInsets.symmetric(vertical: 10),
                         decoration: BoxDecoration(
                           gradient: const LinearGradient(
                             begin: Alignment.topLeft,
@@ -63,13 +69,80 @@ class EventScreen extends ConsumerWidget {
                           ),
                         ),
                         alignment: Alignment.center,
-                        child: Text(
-                          "Волонтёрские мероприятия: $total",
-                          style: const TextStyle(
-                            fontSize: 21,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
+                        child: Column(
+                          children: [
+                            Text(
+                              "Волонтёрские мероприятия: $total",
+                              style: const TextStyle(
+                                fontSize: 21,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                            if (isAuth)
+                              SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  children: [
+                                    ElevatedButton(
+                                      onPressed: () async {
+                                         ref.read(eventProvider.notifier)
+                                          ..refreshPage()
+                                          ..fetchAllEvents();
+                                      },
+                                      child: Row(
+                                        children: [
+                                          Icon(FontAwesomeIcons.rectangleList),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Text('Все мероприятия'),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: () async {
+                                         ref.read(eventProvider.notifier)
+                                          ..refreshPage()
+                                          ..fetchPastEventsUser();
+                                      },
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                              FontAwesomeIcons.clockRotateLeft),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Text('Мои прошедшие'),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: () async {
+                                         ref.read(eventProvider.notifier)
+                                          ..refreshPage()
+                                          ..fetchFutureEventsUser();
+                                      },
+                                      child: Row(
+                                        children: [
+                                          Icon(FontAwesomeIcons.clock),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Text('Мои предстоящие'),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                          ],
                         ),
                       ),
                     ),
@@ -79,11 +152,13 @@ class EventScreen extends ConsumerWidget {
                         ? Column(
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(top: 100.0, bottom: 15),
+                                padding:
+                                    EdgeInsets.only(top: 100.0, bottom: 15),
                                 child: Text("Нет доступных мероприятий"),
                               ),
                               ElevatedButton(
-                                onPressed: () => ref.read(eventProvider.notifier).refresh(),
+                                onPressed: () =>
+                                    ref.read(eventProvider.notifier).refresh(),
                                 child: const Text('Обновить'),
                               ),
                             ],
@@ -95,7 +170,9 @@ class EventScreen extends ConsumerWidget {
                               horizontal: 10,
                               vertical: 8,
                             ),
-                            separatorBuilder: (context, index) => SizedBox(height: 17,),
+                            separatorBuilder: (context, index) => SizedBox(
+                              height: 17,
+                            ),
                             itemCount: events.length,
                             itemBuilder: (context, index) => EventCard(
                               event: events[index],
