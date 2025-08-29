@@ -5,6 +5,7 @@ import 'package:logger/logger.dart';
 
 import 'package:volunteering_kemsu/core/models/FAQ/faq.dart';
 import 'package:volunteering_kemsu/core/models/organization/organization.dart';
+import 'package:volunteering_kemsu/config/ip.dart';
 
 abstract class IOrganizationRepository {
   Future<Faq> fetchAllFaq();
@@ -15,7 +16,7 @@ class OrganizationRepository extends IOrganizationRepository {
   @override
   Future<Faq> fetchAllFaq() async {
     final response = await http.get(
-      Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/faq"),
+      Uri.parse("http://$myIP/volunteeringKEMSU/api/faq"),
       headers: {'Content-Type': 'application/json'},
     );
     final json = jsonDecode(response.body);
@@ -27,7 +28,7 @@ class OrganizationRepository extends IOrganizationRepository {
   @override
   Future<OrganizationInfo> fetchOrganizationInfo() async {
     final response = await http.get(
-      Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/organization"),
+      Uri.parse("http://$myIP/volunteeringKEMSU/api/organization"),
       headers: {'Content-Type': 'application/json'},
     );
 

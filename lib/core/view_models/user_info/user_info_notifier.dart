@@ -24,8 +24,9 @@ class UserInfoNotifier extends StateNotifier<UserInfoState> {
       final prefs = await SharedPreferences.getInstance();
       final userJson = prefs.getString('user');
       final savedLogin = prefs.getString('login');
+      final savedProfile = prefs.getString('profile');
 
-      if (userJson != null) {
+      if (userJson != null && savedProfile != null) {
         final user = UserInfo.fromJson(jsonDecode(userJson));
         final validToken = await _repositoryA.validated(user.token);
 
@@ -36,6 +37,7 @@ class UserInfoNotifier extends StateNotifier<UserInfoState> {
             user: user,
             login: savedLogin ?? '',
             token: user.token,
+            userProfile: UserInfo.fromJson(jsonDecode(savedProfile)),
           );
         }
       } else {
@@ -124,6 +126,7 @@ class UserInfoNotifier extends StateNotifier<UserInfoState> {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove('user');
     await prefs.remove('login');
+    await prefs.remove('profile');
 
     state = UserInfoState();
   }
@@ -266,6 +269,8 @@ class UserInfoNotifier extends StateNotifier<UserInfoState> {
     final UserInfo userInfo = await _repositoryA.receiveUserInfo(state.token);
 
     state = state.copyWith(userProfile: userInfo);
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('profile', jsonEncode(userInfo.toJson()));
   }
 
   Future<void> changeUserInfo() async {
@@ -277,18 +282,21 @@ class UserInfoNotifier extends StateNotifier<UserInfoState> {
     );
 
     _repositoryA.changeUserInfo(state.token, state.userProfile);
+
+    if (state.userProfile != null) {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('profile', jsonEncode(state.userProfile?.toJson()));
+    }
   }
 
   Future<void> getRatingAllUsers() async {
-    // final UserInfo? user = state.userProfile;
-
     final rating = await _repositoryR.getAllUsersInRating();
     state = state.copyWith(usersRating: AsyncValue.data(rating));
 
-    if(rating.isNotEmpty && state.userProfile != null) {
+    if (rating.isNotEmpty && state.userProfile != null) {
       for (int i = 0; i < rating.length; i++) {
         Logger().d('i ${state.user?.id}');
-        if(rating[i].id == state.user?.id) {
+        if (rating[i].id == state.user?.id) {
           state = state.copyWith(placeInRating: i);
         }
       }

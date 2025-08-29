@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
 import 'package:volunteering_kemsu/core/models/pagination/pagination.dart';
+import 'package:volunteering_kemsu/config/ip.dart';
 
 abstract class ILessonsRepository {
   Future<Pagination> fetchAllLessons(int page, String? filter, String? token);
@@ -13,28 +14,39 @@ abstract class ILessonsRepository {
 
 class LessonsRepository extends ILessonsRepository {
   @override
-  Future<Pagination> fetchAllLessons(int page, String? filter, String? token) async {
+  Future<Pagination> fetchAllLessons(
+      int page, String? filter, String? token) async {
     final http.Response response;
 
     Logger().d('отправка token в уроках $token');
 
-    if(token != null &&  token != 'BAD'){
-      if(filter != null) {
+    if (token != null && token != 'BAD') {
+      if (filter != null) {
         response = await http.get(
-          Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/education?"
-              "page=$page&filter=$filter"),
-          headers: {'Content-Type': 'application/json', 'token': token},
+          Uri.parse(
+            "http://$myIP/volunteeringKEMSU/api/education?"
+            "page=$page&filter=$filter",
+          ),
+          headers: {
+            'Content-Type': 'application/json',
+            'token': token,
+          },
         );
       } else {
         response = await http.get(
-          Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/education?"
-              "page=$page"),
-          headers: {'Content-Type': 'application/json', 'token': token},
+          Uri.parse(
+            "http://$myIP/volunteeringKEMSU/api/education?"
+            "page=$page",
+          ),
+          headers: {
+            'Content-Type': 'application/json',
+            'token': token,
+          },
         );
       }
     } else {
       response = await http.get(
-        Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/education?"
+        Uri.parse("http://$myIP/volunteeringKEMSU/api/education?"
             "page=$page"),
         headers: {
           'Content-Type': 'application/json',
@@ -62,7 +74,7 @@ class LessonsRepository extends ILessonsRepository {
   @override
   Future<int?> fetchSizeWatched(String? token, int page) async {
     final http.Response response = await http.get(
-      Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/education?"
+      Uri.parse("http://$myIP/volunteeringKEMSU/api/education?"
           "page=$page&filter=watched"),
       headers: {
         'Content-Type': 'application/json',
@@ -82,7 +94,7 @@ class LessonsRepository extends ILessonsRepository {
   Future<void> sendPoints(int? lessonID, String? token) async {
     final response = await http.post(
       Uri.parse(
-          "http://192.168.1.34:8080/volunteeringKEMSU/api/education/$lessonID"),
+          "http://$myIP/volunteeringKEMSU/api/education/$lessonID"),
       headers: {
         'Content-Type': 'application/json',
         'token': token ?? '',

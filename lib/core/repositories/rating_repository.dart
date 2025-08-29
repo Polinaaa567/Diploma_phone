@@ -1,8 +1,11 @@
 import 'dart:convert';
 
 import 'package:logger/logger.dart';
-import 'package:volunteering_kemsu/core/models/profile/user.dart';
 import 'package:http/http.dart' as http;
+
+import 'package:volunteering_kemsu/config/ip.dart';
+import 'package:volunteering_kemsu/core/models/profile/user.dart';
+
 
 abstract class IRatingRepository {
   Future<List<UserInfo>> getAllUsersInRating();
@@ -13,7 +16,7 @@ class RatingRepository extends IRatingRepository {
   @override
   Future<List<UserInfo>> getAllUsersInRating() async {
     final response = await http.get(
-      Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/rating"),
+      Uri.parse("http://$myIP/volunteeringKEMSU/api/rating"),
       headers: {'Content-Type': 'application/json'},
     );
 
@@ -26,7 +29,7 @@ class RatingRepository extends IRatingRepository {
   Future<UserInfo> getUserAchievements(String? token) async {
     final response = await http.get(
       Uri.parse(
-        "http://192.168.1.34:8080/volunteeringKEMSU/api/rating/achievements",
+        "http://$myIP/volunteeringKEMSU/api/rating/achievements",
       ),
       headers: {
         'Content-Type': 'application/json',

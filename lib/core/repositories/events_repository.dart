@@ -5,6 +5,7 @@ import 'package:logger/logger.dart';
 
 import 'package:volunteering_kemsu/core/models/event/event.dart';
 import 'package:volunteering_kemsu/core/models/pagination/pagination.dart';
+import 'package:volunteering_kemsu/config/ip.dart';
 
 abstract class IEventsRepository {
   Future<Pagination> fetchAllEvents(int page);
@@ -22,7 +23,7 @@ class EventsRepository extends IEventsRepository {
   Future<void> deleteSignUp(String? token, int? eventID) async {
     final response = await http.post(
       Uri.parse(
-          "http://192.168.1,34:8080/volunteeringKEMSU/api/events/$eventID/users"),
+          "http://$myIP/volunteeringKEMSU/api/events/$eventID/users"),
       headers: {
         'Content-Type': 'application/json',
         'token': "$token",
@@ -36,7 +37,7 @@ class EventsRepository extends IEventsRepository {
   @override
   Future<Pagination> fetchAllEvents(int page) async {
     final response = await http.get(
-      Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/events?"
+      Uri.parse("http://$myIP/volunteeringKEMSU/api/events?"
           "page=$page"),
       headers: {'Content-Type': 'application/json'},
     );
@@ -54,7 +55,7 @@ class EventsRepository extends IEventsRepository {
     if (token != null) {
       response = await http.get(
         Uri.parse(
-            "http://192.168.1.34:8080/volunteeringKEMSU/api/events/$eventID"),
+            "http://$myIP/volunteeringKEMSU/api/events/$eventID"),
         headers: {
           'Content-Type': 'application/json',
           'token': token ?? "",
@@ -63,7 +64,7 @@ class EventsRepository extends IEventsRepository {
     } else {
       response = await http.get(
         Uri.parse(
-            "http://192.168.1.34:8080/volunteeringKEMSU/api/events/$eventID"),
+            "http://$myIP/volunteeringKEMSU/api/events/$eventID"),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -83,10 +84,12 @@ class EventsRepository extends IEventsRepository {
     int page,
   ) async {
     final response = await http.get(
-      Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/events?"
-          "dateStart=$dateStart&"
-          "dateEnd=$dateEnd&"
-          "page=$page"),
+      Uri.parse(
+        "http://$myIP/volunteeringKEMSU/api/events?"
+        "dateStart=$dateStart&"
+        "dateEnd=$dateEnd&"
+        "page=$page",
+      ),
       headers: {'Content-Type': 'application/json'},
     );
 
@@ -99,8 +102,10 @@ class EventsRepository extends IEventsRepository {
   @override
   Future<Pagination> fetchFutureEventsUser(int page, String? token) async {
     final response = await http.get(
-      Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/events/future?"
-          "page=$page"),
+      Uri.parse(
+        "http://$myIP/volunteeringKEMSU/api/events/future?"
+        "page=$page",
+      ),
       headers: {
         'Content-Type': 'application/json',
         'token': token ?? "",
@@ -116,8 +121,10 @@ class EventsRepository extends IEventsRepository {
   @override
   Future<Pagination> fetchPastEventsUser(int page, String? token) async {
     final response = await http.get(
-      Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/events/past?"
-          "page=$page"),
+      Uri.parse(
+        "http://$myIP/volunteeringKEMSU/api/events/past?"
+        "page=$page",
+      ),
       headers: {
         'Content-Type': 'application/json',
         'token': token ?? "",
@@ -134,7 +141,7 @@ class EventsRepository extends IEventsRepository {
   Future<void> signUp(String? token, int? eventID) async {
     final response = await http.post(
       Uri.parse(
-          "http://192.168.1.34:8080/volunteeringKEMSU/api/events/sign-up"),
+          "http://$myIP/volunteeringKEMSU/api/events/sign-up"),
       headers: {'Content-Type': 'application/json', 'token': token ?? ''},
       body: jsonEncode({
         'eventID': eventID,

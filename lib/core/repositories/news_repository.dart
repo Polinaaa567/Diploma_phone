@@ -5,6 +5,7 @@ import 'package:logger/logger.dart';
 
 import 'package:volunteering_kemsu/core/models/news/news.dart';
 import 'package:volunteering_kemsu/core/models/pagination/pagination.dart';
+import 'package:volunteering_kemsu/config/ip.dart';
 
 abstract class INewsRepository {
   Future<Pagination> fetchAllNews(int page);
@@ -13,10 +14,12 @@ abstract class INewsRepository {
 
 class NewsRepository extends INewsRepository {
   @override
-  Future<Pagination> fetchAllNews(int page) async{
+  Future<Pagination> fetchAllNews(int page) async {
     final response = await http.get(
-      Uri.parse("http://192.168.1.34:8080/volunteeringKEMSU/api/news?"
-          "page=$page"),
+      Uri.parse(
+        "http://$myIP/volunteeringKEMSU/api/news?"
+        "page=$page",
+      ),
       headers: {'Content-Type': 'application/json'},
     );
     final json = jsonDecode(response.body);
@@ -28,7 +31,8 @@ class NewsRepository extends INewsRepository {
   Future<News> fetchNewsInfo(int? newsID) async {
     final response = await http.get(
       Uri.parse(
-          "http://192.168.1.34:8080/volunteeringKEMSU/api/news?newsID=$newsID"),
+        "http://$myIP/volunteeringKEMSU/api/news?newsID=$newsID",
+      ),
       headers: {'Content-Type': 'application/json'},
     );
 
