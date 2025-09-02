@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:logger/logger.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:volunteering_kemsu/config/ip.dart';
 
 import 'package:volunteering_kemsu/core/providers/user_info_provider.dart';
 
@@ -22,10 +23,8 @@ class RatingScreen extends ConsumerWidget {
       (state) => state.userProfile,
     ));
 
-    int? placeInRating = ref.watch(userInfoProvider.select(
-          (state) => state.placeInRating,
-        )) ??
-        0;
+    int? placeInRating =
+        ref.watch(userInfoProvider.select((state) => state.placeInRating)) ?? 0;
 
     if (placeInRating == 0) {
       placeInRating = placeInRating;
@@ -244,7 +243,7 @@ class RatingScreen extends ConsumerWidget {
                               children: achievements.certificates!
                                   .map((String fileName) {
                                 return Image.network(
-                                  'http://192.168.1.34:8080/volunteeringKEMSU/api/images/storage?fileName=$fileName',
+                                  'http://$myIP/volunteeringKEMSU/api/images/storage?fileName=$fileName',
                                   fit: BoxFit.cover,
                                   errorBuilder: (context, error, stackTrace) {
                                     return Icon(Icons.error);
@@ -351,8 +350,9 @@ class RatingScreen extends ConsumerWidget {
                                     children: [
                                       Container(
                                         decoration: BoxDecoration(
-                                          color: placeInRating == (index + 1) ? Colors.grey.shade400 : null
-                                        ),
+                                            color: placeInRating == (index + 1)
+                                                ? Colors.grey.shade400
+                                                : null),
                                         child: Row(
                                           children: [
                                             (index + 1) <= 3

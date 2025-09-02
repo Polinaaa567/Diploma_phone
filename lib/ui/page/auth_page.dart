@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logger/logger.dart';
-import 'package:volunteering_kemsu/core/providers/navigation_provider.dart';
 
+import 'package:volunteering_kemsu/core/providers/navigation_provider.dart';
 import 'package:volunteering_kemsu/core/providers/user_info_provider.dart';
 
 class AuthScreen extends ConsumerWidget {

@@ -8,9 +8,7 @@ class LessonState {
   final AsyncValue<Lesson> lessonInfo;
   final int? lessonID;
   final int page;
-  final String? error;
   final bool isLoadingMore;
-  final bool? isFiltered;
   final int? total;
   final int? watchedSize;
   final bool isAllLessons;
@@ -23,9 +21,7 @@ class LessonState {
     this.lessonInfo = const AsyncValue.loading(),
     this.lessonsList = const AsyncValue.loading(),
     this.page = 1,
-    this.error,
     this.isLoadingMore = false,
-    this.isFiltered,
     this.total,
     this.watchedSize,
     this.isAllLessons = true,
@@ -38,9 +34,7 @@ class LessonState {
     AsyncValue<Lesson>? lessonInfo,
     int? lessonID,
     int? page,
-    String? error,
     bool? isLoadingMore,
-    bool? isFiltered,
     int? total,
     int? watchedSize,
     bool? isAllLessons,
@@ -52,9 +46,7 @@ class LessonState {
       lessonsList: lessonsList ?? this.lessonsList,
       lessonID: lessonID ?? this.lessonID,
       page: page ?? this.page,
-      error: error ?? this.error,
       isLoadingMore: isLoadingMore ?? this.isLoadingMore,
-      isFiltered: isFiltered ?? this.isFiltered,
       total: total ?? this.total,
       watchedSize: watchedSize ?? this.watchedSize,
       isAllLessons: isAllLessons ?? this.isAllLessons,

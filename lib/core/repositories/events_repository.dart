@@ -58,7 +58,7 @@ class EventsRepository extends IEventsRepository {
             "http://$myIP/volunteeringKEMSU/api/events/$eventID"),
         headers: {
           'Content-Type': 'application/json',
-          'token': token ?? "",
+          'token': token,
         },
       );
     } else {

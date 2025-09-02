@@ -6,8 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:logger/logger.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:volunteering_kemsu/core/models/lesson/lesson.dart';
 
+import 'package:volunteering_kemsu/core/models/lesson/lesson.dart';
 import 'package:volunteering_kemsu/core/providers/user_info_provider.dart';
 import 'package:volunteering_kemsu/core/providers/lessons_provider.dart';
 

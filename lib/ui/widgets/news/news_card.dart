@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:volunteering_kemsu/config/ip.dart';
 import 'package:volunteering_kemsu/core/models/news/news.dart';
 
 import 'package:volunteering_kemsu/core/providers/news_provider.dart';
@@ -38,7 +39,7 @@ class NewsCard extends ConsumerWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(15),
                 child: Image.network(
-                  'http://192.168.1.34:8080/volunteeringKEMSU/api/images/storage?fileName=${news.image}',
+                  'http://$myIP/volunteeringKEMSU/api/images/storage?fileName=${news.image}',
                   height: 140,
                   width: 140,
                   fit: BoxFit.cover,

@@ -121,7 +121,7 @@ class EventNotifier extends StateNotifier<EventState> {
     await repository.signUp(authState.token, state.eventID);
   }
 
-  Future<void> deleteSignUp(int userID) async {
+  Future<void> deleteSignUp() async {
     final authState = ref.read(userInfoProvider);
 
     await repository.deleteSignUp(authState.token, state.eventID);

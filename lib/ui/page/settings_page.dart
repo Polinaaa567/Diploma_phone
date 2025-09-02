@@ -19,7 +19,7 @@ class SettingsScreen extends ConsumerWidget {
       (state) => state.faqList,
     ));
 
-    var userProfile = ref.watch(userInfoProvider.select(
+    final userProfile = ref.watch(userInfoProvider.select(
       (state) => state.userProfile,
     ));
 

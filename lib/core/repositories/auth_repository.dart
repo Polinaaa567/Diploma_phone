@@ -82,8 +82,7 @@ class AuthRepository extends IAuthRepository {
       }),
     );
 
-    Logger()
-        .d('json при изменении данных о пользователе ${jsonDecode(json.body)}');
+    Logger().d('json при изменении данных о пользователе ${jsonDecode(json.body)}');
   }
 
   @override

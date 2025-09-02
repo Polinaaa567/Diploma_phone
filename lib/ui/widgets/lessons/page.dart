@@ -33,10 +33,6 @@ class LessonsAllWidget extends ConsumerWidget {
       (state) => state.isNotPassedLessons,
     ));
 
-    final total = ref.watch(lessonProvider.select(
-      (state) => state.total,
-    ));
-
     return Column(
       children: [
         if (isAuth)

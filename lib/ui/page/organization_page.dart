@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 import 'package:volunteering_kemsu/core/providers/organization_provider.dart';
 
 class OrganizationInfo extends ConsumerWidget {

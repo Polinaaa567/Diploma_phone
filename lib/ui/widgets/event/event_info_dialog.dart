@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:volunteering_kemsu/config/ip.dart';
 
 import 'package:volunteering_kemsu/core/providers/user_info_provider.dart';
 import 'package:volunteering_kemsu/core/providers/event_provider.dart';
@@ -101,7 +102,7 @@ class EventInfoDialog extends ConsumerWidget {
                       ),
                       const SizedBox(height: 15),
                       Image.network(
-                        'http://192.168.1.34:8080/volunteeringKEMSU/api/images/storage?fileName=${event.image}',
+                        'http://$myIP/volunteeringKEMSU/api/images/storage?fileName=${event.image}',
                         height: 220,
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) {

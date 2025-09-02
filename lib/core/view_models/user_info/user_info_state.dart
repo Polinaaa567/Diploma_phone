@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:volunteering_kemsu/core/models/profile/user.dart';
 
@@ -18,9 +19,6 @@ class UserInfoState {
   final String? errorMessagePasswordRepair;
   final UserInfo? userProfile;
   final bool isAuth;
-  String size;
-  String formEducation;
-  String basisEducation;
 
   TextEditingController loginController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -36,9 +34,6 @@ class UserInfoState {
 
   UserInfoState({
     this.isEdit = false,
-    this.size = 'xs',
-    this.formEducation = 'Очная',
-    this.basisEducation = 'Бюджет',
     this.user,
     this.error,
     this.isLoading = false,
@@ -94,9 +89,6 @@ class UserInfoState {
     TextEditingController? lastNameController,
     TextEditingController? patronymicController,
     bool? isAuth,
-    String? size,
-    String? formEducation,
-    String? basisEducation,
     bool? isEdit,
     AsyncValue<List<UserInfo>>? usersRating,
     int? placeInRating,
@@ -125,9 +117,6 @@ class UserInfoState {
       firstNameController: firstNameController ?? this.firstNameController,
       lastNameController: lastNameController ?? this.lastNameController,
       patronymicController: patronymicController ?? this.patronymicController,
-      size: size ?? this.size,
-      formEducation: formEducation ?? this.formEducation,
-      basisEducation: basisEducation ?? this.basisEducation,
       isEdit: isEdit ?? this.isEdit,
       usersRating: usersRating ?? this.usersRating,
       placeInRating: placeInRating ?? this.placeInRating,
