@@ -38,14 +38,14 @@
 
 Страница с уроками: 
 <img width="195" height="420" alt="Снимок экрана 2025-09-03 124508" src="https://github.com/user-attachments/assets/d74e2231-b0dd-4acc-9755-86c102d9165d" />
-<img width="389" height="808" alt="Снимок экрана 2025-09-03 125323" src="https://github.com/user-attachments/assets/867cb190-6402-4645-afc0-7bacb1e1d7f2" />
+<img width="195" height="420" alt="Снимок экрана 2025-09-03 125323" src="https://github.com/user-attachments/assets/867cb190-6402-4645-afc0-7bacb1e1d7f2" />
 
 Страница настроек, авторизации и информации о центре:
-<img width="391" height="862" alt="Снимок экрана 2025-09-03 125158" src="https://github.com/user-attachments/assets/c02f7ef5-8ed7-43a4-89df-d4879550ee96" />
-<img width="393" height="847" alt="Снимок экрана 2025-09-03 125209" src="https://github.com/user-attachments/assets/53dc4f92-54ee-45ce-9de0-84594ccac65f" />
-<img width="389" height="837" alt="Снимок экрана 2025-09-03 125222" src="https://github.com/user-attachments/assets/4159a602-389f-4b37-82a5-4f49d777ef2b" />
-<img width="378" height="814" alt="Снимок экрана 2025-09-03 125401" src="https://github.com/user-attachments/assets/1d5c566b-34d4-45c4-a050-13fafcea8e84" />
+<img width="195" height="420" alt="Снимок экрана 2025-09-03 125158" src="https://github.com/user-attachments/assets/c02f7ef5-8ed7-43a4-89df-d4879550ee96" />
+<img width="195" height="420" alt="Снимок экрана 2025-09-03 125209" src="https://github.com/user-attachments/assets/53dc4f92-54ee-45ce-9de0-84594ccac65f" />
+<img width="195" height="420" alt="Снимок экрана 2025-09-03 125222" src="https://github.com/user-attachments/assets/4159a602-389f-4b37-82a5-4f49d777ef2b" />
+<img width="195" height="420" alt="Снимок экрана 2025-09-03 125401" src="https://github.com/user-attachments/assets/1d5c566b-34d4-45c4-a050-13fafcea8e84" />
 
 Страница рейтинга:
-<img width="381" height="811" alt="Снимок экрана 2025-09-03 125341" src="https://github.com/user-attachments/assets/f75435a8-99b4-4ef0-acb4-f5fc85b13d27" />
-<img width="378" height="813" alt="Снимок экрана 2025-09-03 125349" src="https://github.com/user-attachments/assets/08b686fc-a140-4824-96a7-7cd1a76763d7" />
+<img width="195" height="420" alt="Снимок экрана 2025-09-03 125341" src="https://github.com/user-attachments/assets/f75435a8-99b4-4ef0-acb4-f5fc85b13d27" />
+<img width="195" height="420" alt="Снимок экрана 2025-09-03 125349" src="https://github.com/user-attachments/assets/08b686fc-a140-4824-96a7-7cd1a76763d7" />
