@@ -1,16 +1,51 @@
-# volunteering_kemsu
+<h1 align="center">Дипломная работа "Информационная система для волонтёрского центра КемГУ"</h1>
 
-A new Flutter project.
+<h2 align="center">Описание</h2>
+Мероприятия и игровая система - важные части приложения. Пользователи могут просматривать информацию о событиях и новостях, а также участвовать в них. Пользователи могут подавать заявки на участие, если количество мест не законченно, и выбирать видеоуроки для обучения, получая баллы. Также предусмотрены разделы: достижения, рейтинг, профиль, отчётность, FAQ и информация о центре.
 
-## Getting Started
+<h2 align="center">Зависимости</h2>
+Для работы приложения необходимо в pubspec.yaml добавить: provider, image, http, shared_preferences, flutter_riverpod, freezed_annotation, go_router, json_serializable, json_annotation, percent_indicator, syncfusion_flutter_datepicker, url_launcher, share_plus, font_awesome_flutter, flutter_image_slideshow и запустить команду в консоли 'pub get'
 
-This project is a starting point for a Flutter application.
+<h2 align="center">Как запустить</h2>
+В проекте не хватает файла config/config.dart в нём прописан путь до сервера, в моём случае IP и порт на котором запущен сервер.
 
-A few resources to get you started if this is your first Flutter project:
+<h2 align="center">Основные возможности</h2>
+- Авторизация / регистрация через логин;
+- Заполнить свои данные: ФИО, форма обучения (очная, очно-заочная, заочная), основа обучения (контракт, бюджет), размер одежды, отметка возраста (более или равно 18 лет);
+- Пользователь-посетитель может ознакомиться с популярными вопросами и ответами на них;
+- Пользователь-посетитель может прочитать подробную информацию об этой организации;
+- Пользователь-посетитель может просматривать информацию обо всех мероприятиях, которые проводит организация;
+-Пользователь-посетитель может просматривать подробную информацию о выбранном мероприятии: название, описание, дата, время, адрес встречи участников, количество участников, формат мероприятия, тип мероприятия, возрастное ограничение, количество баллов;
+- Пользователь-посетитель может просматривать все новости о волонтёрской деятельности в КемГУ;
+- Пользователь-посетитель может просматривать информацию о выбранной новости: название, описание, дата публикации новости, фотография с мероприятия, если она имеется.
+- Пользователь может просматривать рейтинг всех пользователей (ФИО, уровень), которые сортированы по баллу;
+- Пользователь может просматривать свой уровень в виде ползунка, который будет увеличиваться при получении новых баллов;
+- Пользователь может просматривать свои сертификаты в виде списка;
+- Пользователь получает доступ к информации о предстоящих мероприятиях, в которых он будет принимать участие;
+- Пользователь получает доступ к информации о прошедших мероприятиях, в которых он принимал участие;
+- Пользователь может подать заявку на участие в мероприятии, если не достигнуто ограничение по количеству участников;
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Страница мероприятий: 
+<img width="195" height="420" alt="Снимок экрана 2025-09-03 123854" src="https://github.com/user-attachments/assets/da61686d-f935-438b-b932-818912a774aa" />
+<img width="195" height="420" alt="Снимок экрана 2025-09-03 124305" src="https://github.com/user-attachments/assets/b5b08cbe-66ff-4818-9d8e-0a9ba4737d2c" />
+<img width="195" height="420" alt="Снимок экрана 2025-09-03 124348" src="https://github.com/user-attachments/assets/e71bc425-1fb5-4056-9d57-8ec86f6affdb" />
+<img width="195" height="420" alt="Снимок экрана 2025-09-03 125251" src="https://github.com/user-attachments/assets/022d3b14-aa30-4ad7-a3ce-3fed6dc5c116" />
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Страница с новостями: 
+<img width="195" height="420" alt="Снимок экрана 2025-09-03 124417" src="https://github.com/user-attachments/assets/dee412a9-acdb-49dc-8dcb-ff623b3cb71d" />
+<img width="195" height="420" alt="Снимок экрана 2025-09-03 124430" src="https://github.com/user-attachments/assets/9aab99e7-04e2-455d-ac16-27a86374a948" />
+<img width="195" height="420" alt="Снимок экрана 2025-09-03 124453" src="https://github.com/user-attachments/assets/2cd341b0-f057-43a0-b6c1-15b86c7201b6" />
+
+Страница с уроками: 
+<img width="195" height="420" alt="Снимок экрана 2025-09-03 124508" src="https://github.com/user-attachments/assets/d74e2231-b0dd-4acc-9755-86c102d9165d" />
+<img width="389" height="808" alt="Снимок экрана 2025-09-03 125323" src="https://github.com/user-attachments/assets/867cb190-6402-4645-afc0-7bacb1e1d7f2" />
+
+Страница настроек, авторизации и информации о центре:
+<img width="391" height="862" alt="Снимок экрана 2025-09-03 125158" src="https://github.com/user-attachments/assets/c02f7ef5-8ed7-43a4-89df-d4879550ee96" />
+<img width="393" height="847" alt="Снимок экрана 2025-09-03 125209" src="https://github.com/user-attachments/assets/53dc4f92-54ee-45ce-9de0-84594ccac65f" />
+<img width="389" height="837" alt="Снимок экрана 2025-09-03 125222" src="https://github.com/user-attachments/assets/4159a602-389f-4b37-82a5-4f49d777ef2b" />
+<img width="378" height="814" alt="Снимок экрана 2025-09-03 125401" src="https://github.com/user-attachments/assets/1d5c566b-34d4-45c4-a050-13fafcea8e84" />
+
+Страница рейтинга:
+<img width="381" height="811" alt="Снимок экрана 2025-09-03 125341" src="https://github.com/user-attachments/assets/f75435a8-99b4-4ef0-acb4-f5fc85b13d27" />
+<img width="378" height="813" alt="Снимок экрана 2025-09-03 125349" src="https://github.com/user-attachments/assets/08b686fc-a140-4824-96a7-7cd1a76763d7" />
